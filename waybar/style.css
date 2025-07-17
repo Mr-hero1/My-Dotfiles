@@ -1,0 +1,135 @@
+/* Waybar Style Sheet */
+
+/* Global */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Hack","unifont"; 
+    font-size: 11px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 1); 
+    color: #ffffff; 
+}
+
+/* Base Module Styling */
+#waybar.hidden {
+    opacity: 1;
+}
+
+.modules-left > widget:first-child > #custom-launcher {
+    margin-left: 10px;
+}
+
+.modules-right > widget:last-child > #battery {
+    margin-right: 10px;
+}
+
+/* Module Specific Styling */
+
+#custom-notification,
+#custom-power,
+#custom-launcher,
+#custom-text1,
+#custom-text2,
+#hyprland-workspaces,
+#hyprland-window,
+#mpris,
+#pulseaudio,
+#backlight,
+#bluetooth,
+#network,
+#battery {
+    padding: 0 0px;
+    margin: 0 0px;
+    background: #000000; /* Slightly lighter module background */
+    border-radius: 0px; /* Rounded corners for modules */
+}
+
+/* Left Modules */
+#custom-launcher {
+    color: #ffffff; /* Green for launcher */
+}
+
+#hyprland-workspaces {
+    color: #ffffff;
+}
+
+#custom-text2,
+#custom-text1 {
+    color: #ffffff; /* Orange for custom text modules */
+}
+
+#hyprland-window {
+    color: #ffffff; /* Purple for window title */
+    font-weight: bold;
+}
+
+/* Center Modules */
+#mpris {
+    color: #ffffff; /* Blue for MPRIS */
+}
+
+#mpris.paused {
+    color: #ffffff; /* Orange when paused */
+}
+
+/* Right Modules */
+#pulseaudio {
+    color: #ffffff; /* Pink for audio */
+}
+
+#pulseaudio.muted {
+    color: #ffffff; /* Lighter pink when muted */
+}
+
+#backlight {
+    color: #ffffff; /* Light green for backlight */
+}
+
+#bluetooth {
+    color: #ffffff; /* Cyan for Bluetooth */
+}
+
+#bluetooth.connected {
+    color: #ffffff; /* Green when connected */
+}
+
+#network {
+    color: #ffffff; /* Magenta for network */
+}
+
+#network.disconnected {
+    color: #ffffff; /* Lighter pink when disconnected */
+}
+
+#battery {
+    color: #ffffff; /* Lavender for battery */
+}
+
+#battery.charging {
+    color: #ffffff; /* Green when charging */
+}
+
+#battery.warning {
+    color: #ffffff; /* Yellowish when warning */
+}
+
+#battery.critical {
+    color: #f38ba8; /* Pink when critical */
+}
+
+/* Tooltips */
+tooltip {
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 5px 10px;
+}
+
+tooltip label {
+    color: #ffffff;
+}
