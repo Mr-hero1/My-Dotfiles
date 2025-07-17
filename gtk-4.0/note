@@ -192,26 +192,6 @@ radiobutton:checked {
     color: @accent_fg_color;
 }
 
-/* Focus rings */
-*:focus {
-    outline-color: @accent_bg_color;
-}
-
-window,
-.window,
-.view,
-.headerbar,
-.sidebar,
-.secondary-sidebar,
-.dialog,
-.popover,
-.card,
-.thumbnail,
-.overview {
-    background-color: #000000;
-}
-
-
 :root {
     --standalone-color-oklab: max(l, 0.85) a b;
     --accent-color: oklab(from var(--accent-bg-color) var(--standalone-color-oklab));
@@ -232,9 +212,6 @@ window,
     --highlight-bg-color: var(--accent-bg-color);
     --highlight-fg-color: var(--accent-fg-color);
 }
-
-@import 'libadwaita.css';
-@import 'libadwaita-tweaks.css';
 
 
 
