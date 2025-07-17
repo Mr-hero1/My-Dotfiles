@@ -1,0 +1,33 @@
+* {
+  all: unset;
+}
+
+window {
+  background-color: transparent;
+  border: 0px solid #ffffff;
+  border-radius: 0px;
+  padding: 100rem;
+
+
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+
+.date-label {
+  font-family: "DS\-Digital";
+  font-size:   24px;
+  color:       #ffffff;
+
+  -webkit-text-stroke: 0px #000;
+}
+.clock-label {
+  font-family: "DS\-Digital";
+  font-size:   95px;
+  color:       #ffffff;
+
+  -webkit-text-stroke: 0px #F4DEB7;
+}

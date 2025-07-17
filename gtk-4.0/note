@@ -1,0 +1,240 @@
+/* GTK NAMED COLORS ---------------- use responsibly! */
+@define-color destructive_bg_color @red_4;
+@define-color destructive_fg_color white;
+@define-color success_bg_color @green_5;
+@define-color success_fg_color white;
+@define-color warning_bg_color #cd9309;
+@define-color warning_fg_color RGB(0 0 0 / 80%);
+@define-color error_bg_color @red_4;
+@define-color error_fg_color white;
+
+/* Updated Accent Color */
+@define-color accent_bg_color #E87090; /* New accent background color */
+@define-color accent_fg_color #000000; /* New accent foreground color */
+@define-color accent_color oklab(from #ffffff max(l, 0.85) a b);
+
+@define-color destructive_color oklab(from @destructive_bg_color max(l, 0.85) a b);
+@define-color success_color oklab(from @success_bg_color max(l, 0.85) a b);
+@define-color warning_color oklab(from @warning_bg_color max(l, 0.85) a b);
+@define-color error_color oklab(from @error_bg_color max(l, 0.85) a b);
+
+/* Updated Window and View Colors - All backgrounds set to #000000 */
+@define-color window_bg_color #000000;
+@define-color window_fg_color #ffffff;
+@define-color view_bg_color #000000;
+@define-color view_fg_color #ffffff;
+
+/* Consistent Headerbar Colors - Background set to #000000 */
+@define-color headerbar_bg_color #000000; /* Changed to pure black */
+@define-color headerbar_fg_color #ffffff;
+@define-color headerbar_border_color @accent_bg_color; /* Changed to full accent color */
+@define-color headerbar_backdrop_color #000000;
+@define-color headerbar_shade_color RGB(0 0 6/36%);
+@define-color headerbar_darker_shade_color RGB(0 0 12/90%);
+
+/* Consistent Sidebar Colors - Backgrounds set to #000000 */
+@define-color sidebar_bg_color #000000; /* Changed to pure black */
+@define-color sidebar_fg_color #ffffff;
+@define-color sidebar_backdrop_color #000000; /* Changed to pure black */
+@define-color sidebar_shade_color RGB(0 0 6/25%);
+@define-color sidebar_border_color oklab(from #ffffff l a b / 0.36);
+
+/* Consistent Secondary Sidebar Colors - Backgrounds set to #000000 */
+@define-color secondary_sidebar_bg_color #000000; /* Changed to pure black */
+@define-color secondary_sidebar_fg_color #ffffff;
+@define-color secondary_sidebar_backdrop_color #000000; /* Changed to pure black */
+@define-color secondary_sidebar_shade_color RGB(0 0 6/25%);
+@define-color secondary_sidebar_border_color oklab(from #ffffff l a b / 0.36);
+
+/* Consistent Card Colors - Background set to #000000 */
+@define-color card_bg_color #000000; /* Changed to pure black */
+@define-color card_fg_color #ffffff;
+@define-color card_shade_color RGB(0 0 6/36%);
+
+/* Consistent Dialog and Popover Colors - Backgrounds set to #000000 */
+@define-color dialog_bg_color #000000; /* Changed to pure black */
+@define-color dialog_fg_color #ffffff;
+@define-color popover_bg_color #000000; /* Changed to pure black */
+@define-color popover_fg_color #ffffff;
+@define-color popover_shade_color RGB(0 0 6/25%);
+
+/* Consistent Thumbnail Colors - Background set to #000000 */
+@define-color thumbnail_bg_color #000000; /* Changed to pure black */
+@define-color thumbnail_fg_color #ffffff;
+
+@define-color shade_color RGB(0 0 6/25%);
+@define-color scrollbar_outline_color oklab(from @accent_bg_color l a b / 0.95);
+
+/* Added general selection and focus colors to ensure broader application of accent */
+@define-color selected_bg_color @accent_bg_color;
+@define-color selected_fg_color @accent_fg_color;
+@define-color focus_color @accent_bg_color; /* For focus rings */
+@define-color progress_bar_bg_color @accent_bg_color; /* For progress bars */
+@define-color highlight_bg_color @accent_bg_color; /* General highlight background */
+@define-color highlight_fg_color @accent_fg_color;
+
+/* General GTK widget styling for accent color */
+.accent {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+/* Progress bars */
+progressbar trough {
+    background-color: alpha(@accent_bg_color, 0.2);
+}
+progressbar progress {
+    background-color: @accent_bg_color;
+}
+
+/* Sliders/Scales (like in pavucontrol) */
+scale trough {
+    background-color: alpha(@accent_bg_color, 0.2);
+}
+scale highlight, scale slider {
+    background-color: @accent_bg_color;
+    border-color: @accent_bg_color; /* Ensure border also matches */
+}
+scale marks {
+    color: @accent_bg_color;
+}
+
+/* Level bars */
+levelbar trough {
+    background-color: alpha(@accent_bg_color, 0.2);
+}
+levelbar block {
+    background-color: @accent_bg_color;
+}
+
+/* Selected states in lists/trees (like pavucontrol output/input devices) */
+.view:selected,
+.view:selected:focus,
+.view:selected:hover {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+row:selected,
+row:selected:focus,
+row:selected:hover {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+list row:selected,
+list row:selected:focus,
+list row:selected:hover,
+flowbox flowboxchild:selected,
+flowbox flowboxchild:selected:focus,
+flowbox flowboxchild:selected:hover,
+grid row:selected,
+grid row:selected:focus,
+grid row:selected:hover,
+grid column:selected,
+grid column:selected:focus,
+grid column:selected:hover {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+/* Buttons and toggles */
+button
+button.flat:hover,
+button.flat:active,
+button.flat:focus,
+button.suggested-action,
+button.suggested-action:hover,
+button.suggested-action:active,
+button.suggested-action:focus {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+/* Comprehensive styling for switch widget */
+switch {
+    /* General styling for the switch itself */
+    background-image: none; /* Remove any default background images */
+    border: none; /* Remove default borders */
+}
+
+switch trough {
+    background-color: alpha(@accent_bg_color, 0.3); /* Lighter accent for the track */
+    border-radius: 100px; /* Make it rounded */
+}
+
+switch slider {
+    background-color: @accent_bg_color; /* Accent for the thumb */
+    border-color: @accent_bg_color; /* Ensure border matches */
+    box-shadow: none; /* Remove any default shadows */
+}
+
+/* Styling for the checked state of the switch */
+switch:checked {
+    background-color: @accent_bg_color; /* The switch itself when checked */
+}
+
+switch:checked trough {
+    background-color: @accent_bg_color; /* Ensure the track is fully accented when checked */
+}
+
+switch:checked slider {
+    background-color: @accent_fg_color; /* Thumb color when switch is ON (e.g., white) */
+    border-color: @accent_fg_color;
+}
+
+
+checkbutton:checked,
+radiobutton:checked {
+    background-image: none;
+    background-color: @accent_bg_color;
+    border-color: @accent_bg_color;
+    color: @accent_fg_color;
+}
+
+/* Focus rings */
+*:focus {
+    outline-color: @accent_bg_color;
+}
+
+window,
+.window,
+.view,
+.headerbar,
+.sidebar,
+.secondary-sidebar,
+.dialog,
+.popover,
+.card,
+.thumbnail,
+.overview {
+    background-color: #000000;
+}
+
+
+:root {
+    --standalone-color-oklab: max(l, 0.85) a b;
+    --accent-color: oklab(from var(--accent-bg-color) var(--standalone-color-oklab));
+    --destructive-color: oklab(from var(--destructive_bg_color) var(--standalone-color-oklab));
+    --success-color: oklab(from var(--success_bg_color) var(--standalone-color-oklab));
+    --warning-color: oklab(from var(--warning_bg_color) var(--standalone-color-oklab));
+    --error-color: oklab(from var(--error_bg_color) var(--standalone-color-oklab));
+    --active-toggle-bg-color: oklab(from var(--accent-bg-color) l a b / 0.2); /* Accent color for active toggle */
+    --active-toggle-fg-color: #ffffff;
+    --overview-bg-color: #000000; /* Changed to pure black */
+    --overview-fg-color: #ffffff;
+
+    /* Added root variables for general selection and focus colors */
+    --selected-bg-color: var(--accent-bg-color);
+    --selected-fg-color: var(--accent-fg-color);
+    --focus-color: var(--accent-bg-color);
+    --progress-bar-bg-color: var(--accent-bg-color);
+    --highlight-bg-color: var(--accent-bg-color);
+    --highlight-fg-color: var(--accent-fg-color);
+}
+
+@import 'libadwaita.css';
+@import 'libadwaita-tweaks.css';
+
+
+
