@@ -1,32 +1,38 @@
 (defwidget clock []
     (box :orientation "v"
-      :halign "center"
-      :spacing -150
+      :spacing -30
+    (overlay
+      (label :text "88:88:88"
+        :class "clock-label-1"
+        :halign "center"
+        :valign "end")
       (label :text current_time
         :y "0"
         :class "clock-label"
-        :valign "end")
+        :halign "center"
+        :valign "end"))
       (label :text data
         :valign "end"
+        :halign "center"
         :class "date-label")))
 
 ;; Poll definitions must be outside the widget definition
 (defpoll current_time
-  :interval "50s"
-  "date '+[%H:%M]'")
+  :interval "1s"
+  "date '+%H:%M:%S'")
 
 (defpoll data
-  :interval "1h"
-  "date '+[%d/%B/%Y]'")
+  :interval "24h"
+  "date '+ %d/%b/%Y '")
 
 (defwindow clock
   :monitor "0"
   :exclusive false
-  :stacking "bg"
+  :stacking "bottom"
   :geometry (geometry
     :x "0"
-    :y "-75"
-    :width "250px"
-    :height "200px"
-    :anchor "top center")
+    :y "5"
+    :width "285px"
+    :height "0px"
+    :anchor "bottom center")
   (clock))

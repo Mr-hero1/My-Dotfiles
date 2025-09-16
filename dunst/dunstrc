@@ -1,29 +1,47 @@
 [global]
 monitor = 1
-frame_width = 1
+padding = 8
+width = (285, 900)
+height = (60,)
+origin = bottom-center
+frame_width = 0
 frame_color = "#ff0000"
-separator_color= frame
-highlight = "#AAAAAA"
+separator_height = 0
+separator_color = "#000000" 
+line_height = 0
 background = "#000000"
 foreground = "#ffffff"
-corner_radius = 1
-progress_bar_corner_radius = 2
-corners = top-left,bottom
-progress_bar_corners = top-left,bottom-right
-offset = (15, 15)
-gap_size = 5
+corner_radius = 5
+progress_bar_corner_radius = 0
+progress_bar_max_width = 350
+progress_bar_min_width = 280
+progress_bar_height = 10
+offset = (0, 25)
+gap_size = 0
 format = "<b>%a </b>\n%s\n<i>%b</i>"
-font   = "Hack 12"
-max_icon_size = 80
+font   = "Hack 11"
+min_icon_size = 65
+max_icon_size = 65
+stack_duplicates = true
+hide_duplicate_count = true
 
 [urgency_low]
+format = "%s"
+alignment = center
+vertical_alignment = center
 foreground = "#ffffff"
 frame_color = "#ffffff"
+highlight = "#ffffffff"
+timeout = 5
 
 [urgency_normal]
 foreground = "#ffffff"
 frame_color = "#ffffff"
+highlight = "#ffffffff"
+timeout = 20
 
 [urgency_critical]
-foreground = "#f38ba8"
-frame_color = "#f38ba8"
+foreground = "#ff0000ff"
+frame_color = "#ffffffff"
+highlight = "#ff00d0"
+timeout = 60

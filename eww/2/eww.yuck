@@ -1,0 +1,19 @@
+(defwidget info []
+  (box
+    :orientation "v"
+    :halign "start"
+    :valign "start"
+    (label :xalign 0 :markup info))
+    )
+
+    (defpoll info
+  :interval "5s"
+  "~/.config/scripts/info.sh")
+
+(defwindow info
+  :window_type "dock"
+  :monitor 0
+  :stacking "bottom"
+  :input_passthrough true
+  :geometry (geometry :x "3px" :y "50px" :width "0px" :anchor "top left")
+  (info))

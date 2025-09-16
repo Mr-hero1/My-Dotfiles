@@ -1,0 +1,13 @@
+.workspace-widget {
+  color: rgba(255, 255, 255, 0.946);
+  font-size: 35px;
+    text-shadow:
+    -1px -1px 2 #000,
+     1px -1px 2 #000,
+    -1px  1px 2 #000,
+     1px  1px 2 #000;
+
+  &.background {
+    background: none;
+  }
+}

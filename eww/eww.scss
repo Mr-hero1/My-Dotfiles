@@ -4,10 +4,8 @@
 
 window {
   background-color: #000000;
-  border-bottom: 0px solid #ff0000;
-  border-radius: 10px;
-  padding-bottom: 10px;
-
+  border-radius:  8px;
+  padding-bottom: 0px;
   text-shadow:
     -1px -1px 0 #000,
      1px -1px 0 #000,
@@ -15,25 +13,33 @@ window {
      1px  1px 0 #000;
 }
 
-
 .date-label {
   font-family: "DS\-Digital";
-  font-size:   25px;
+  font-size:   23px;
   color:       #ffffff;
-  padding: 0px;
-  -webkit-text-stroke: 0px #000;
-    padding-bottom: 10px;
+  padding-left: 9px;
+  -webkit-text-stroke: 10px #000;
+  padding-bottom: 0px;
 
 }
 .clock-label {
-  font-family: "DS\-Digital";
-  font-size:   85px;
+  font-family: "DSEG7 Modern";
+  font-size:   45px;
   font-weight: bolder;
   color:       #ffffff;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 0px;
   -webkit-text-stroke: 0px #F4DEB7;
 }
-
+.clock-label-1 {
+  font-family: "DSEG7 Modern";
+  font-size:   45px;
+  font-weight: bolder;
+  color: rgba(98, 98, 98, 0.7);
+  padding-top: 10px;
+  padding-bottom: 0px;
+  -webkit-text-stroke: 0px #F4DEB7;
+}
 .main-image {
   padding: 20px;
   
