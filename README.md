@@ -23,5 +23,5 @@
 ## 🚀 Here
 1. **Clone the repo:**
    ```bash
-   git clone https://github.com/Mr-hero1/My-Config.git
+   git clone https://github.com/Mr-hero1/My-Dotfiles.git
    cd My-Config
