@@ -1,0 +1,4 @@
+;; Include your separate files
+(include "./workspace.yuck")
+(include "./clock.yuck")
+(include "./bar.yuck")

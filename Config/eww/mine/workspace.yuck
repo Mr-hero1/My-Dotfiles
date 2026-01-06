@@ -1,0 +1,19 @@
+(defwidget workspace-widget []
+  (box
+    :orientation "v"
+    :halign "start"
+    :valign "start"
+    (label :xalign 0 :markup current_workspace))
+    )
+
+    (defpoll current_workspace
+  :interval "0.2s"
+  "/home/Dr/.config/eww/mine/modules/roman_num.sh")
+
+(defwindow workspace-widget
+  :window_type "dock"
+  :monitor 0
+  :stacking "fg"
+  :input_passthrough true
+  :geometry (geometry :x "0px" :y "0px" :width "0px" :anchor "top left")
+  (workspace-widget))

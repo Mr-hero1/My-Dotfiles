@@ -1,0 +1,45 @@
+[global]
+monitor = 1
+padding = 8
+width = (265, 1200)
+height = (55,)
+origin = top-center
+offset = (0, 18) 
+frame_width = 2
+frame_color = "#ffffffff"
+separator_height = 0
+separator_color = "#000000" 
+line_height = 0
+background = "#11111b05"
+foreground = "#ffffff"
+corner_radius = 18
+progress_bar_corner_radius = 8
+progress_bar_max_width = 1000
+progress_bar_min_width = 400
+progress_bar_height = 10
+gap_size = 0
+format = "<b>%a </b>\n%s\n<i>%b</i>"
+font   = "Hack 11"
+min_icon_size = 65
+max_icon_size = 65
+icon_corner_radius = 25
+stack_duplicates = true
+hide_duplicate_count = true
+
+[urgency_low]
+format = "%s"
+alignment = center
+vertical_alignment = center
+foreground = "#ffffff"
+highlight = "#ffffffff"
+timeout = 5
+
+[urgency_normal]
+foreground = "#ffffff"
+highlight = "#ffffffff"
+timeout = 20
+
+[urgency_critical]
+foreground = "#ff0000ff"
+highlight = "#ff00d0"
+timeout = 60

@@ -1,0 +1,27 @@
+* {
+  all: unset;
+}
+
+.clock {
+  background: none;
+  border-radius:  0px;
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-style: solid;
+  padding-top: 7px;
+}
+
+.clock-label {
+  font-family: "Hack Nerd Font";
+  font-size:   15px;
+  font-weight: bold;
+  color:       #ffffff;
+  padding-top: 4px;
+  padding-right: 8px;
+  -webkit-text-stroke: 0px #F4DEB7;
+}
+
+
+
+

@@ -1,0 +1,24 @@
+* {
+  all: unset;
+}
+
+.clock {
+  background: none;
+  border-radius:  0px;
+  border-style: solid;
+  padding-top: 7px;
+}
+
+.clock-label {
+  font-family: "Unifont";
+  font-size:   340px;
+  font-style: italic;
+  color:       #ffffff;
+  padding-top: 4px;
+  padding-right: 8px;
+  -webkit-text-stroke: 0px #F4DEB7;
+}
+
+
+
+

@@ -1,0 +1,58 @@
+.bar {
+  background: none;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  border-radius:  0px;
+  font-family: "Hack Nerd Font";
+  font-weight: bold;
+  font-size: 11px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+button {
+  all: unset; 
+}
+
+/* Dynamic State Colors */
+.charging {
+  color: #a6e3a1; /* Green */
+}
+
+.critical {
+  color: #f38ba8; /* Red */
+}
+
+.low {
+  color: #fab387; /* Orange */
+}
+
+.bluetooth-btn:hover {
+  color: #f5c2e7;             /* Changes text to a soft pink on hover */
+}
+
+.wifi-btn:hover {
+  color: #f5c2e7;             
+}
+
+.wifi-btn {
+  padding-right:5px ;
+}
+
+.kay-btn:hover {
+  color: #f5c2e7;             
+}
+
+.kay-btn {
+  padding-left:5px ;
+}
+
+.music-pill:hover {
+  color: #f5c2e7;
+}
+
+/* Style when muted */
+.vol-muted {
+    color: #f38ba8;   
+}

@@ -1,0 +1,19 @@
+theme = "catppuccin_mocha"
+
+[editor]
+color-modes = true
+auto-pairs = false
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "underline"
+select = "bar"
+
+[keys.normal]
+"y" = ":clipboard-yank"
+"p" = ":clipboard-paste-after"

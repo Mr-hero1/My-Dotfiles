@@ -1,0 +1,10 @@
+.workspace-widget {
+  color: rgba(255, 255, 255, 0.946);
+  font-size: 23px;
+  font-family: 'Hack Nerd Font';
+  font-weight: bolder;
+  padding-left: 4px;
+  &.background {
+    background: none;
+  }
+}
