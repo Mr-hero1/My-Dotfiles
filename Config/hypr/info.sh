@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# It is good practice to use double quotes around variables to handle spaces
 time_elapsed=$(uptime -p | sed 's/up //')
 battery_level=$(cat /sys/class/power_supply/BAT0/capacity)%
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
