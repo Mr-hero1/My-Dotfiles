@@ -2,8 +2,8 @@
 > A brief, catchy description of the aesthetic (e.g., "A cozy, forest-themed Nord Rice").
 
 ## 📸 Screenshots
-![Desktop Preview](link-to-your-image.png)
-![Terminal & Neofetch](link-to-another-image.png)
+(Preview/2025-12-31-151346_hyprshot.png)
+(Preview/2025-12-31-151622_hyprshot.png)
 
 ## 🛠 Details
 | Component | Software |
