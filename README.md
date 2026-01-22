@@ -1,4 +1,4 @@
-# 🐧 [Icy Rice]
+# 🐧 [Nightly Rice]
 Personal dotfiles for Hyprland configuration.
 
 ## 📸 Screenshots
@@ -33,7 +33,10 @@ Personal dotfiles for Hyprland configuration.
   - URL: https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme  
 
 - catppuccin / qtcreator  
-  - URL: https://github.com/catppuccin/qtcreator  
+  - URL: https://github.com/catppuccin/qtcreator
 
+-  Catppuccin / Kvantum
+  - URL: https://github.com/catppuccin/Kvantum
+    
 - eww configuration docs (official)  
   - URL: https://elkowar.github.io/eww/configuration.html
