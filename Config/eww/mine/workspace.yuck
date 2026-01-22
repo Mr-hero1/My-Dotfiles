@@ -14,5 +14,5 @@
   :monitor 0
   :stacking "fg"
   :input_passthrough true
-  :geometry (geometry :x "1px" :y "-2px" :width "50px" :anchor "top left")
+  :geometry (geometry :x "1px" :y "-2px" :width "0px" :anchor "top left")
   (workspace-widget))

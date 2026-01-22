@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 set -e
 
 get_brightness() {
@@ -5,8 +7,12 @@ get_brightness() {
     [[ -d $dir ]] && echo $(( $(<"$dir/brightness") * 100 / $(<"$dir/max_brightness") )) || echo 0
 }
 
-show_notif() { notify-send -u low -a sysl -t 2000 -h string:x-dunst-stack-tag:osd -h int:value:"$2" "$1"; }
-
+show_notif() { 
+    # Using x-canonical-private-synchronous instead of dunst-stack-tag
+    notify-send -u low -a sys -t 2000 \
+    -h string:x-canonical-private-synchronous:osd \
+    -h int:value:"$2" "$1" 
+}
 # --- Main actions ---
 case $1 in
     brightness_up|brightness_down)

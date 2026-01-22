@@ -6,7 +6,7 @@ get_output() {
     is_muted() { pamixer --get-mute; }
 
     if [ "$(is_muted)" = "true" ]; then
-        echo " [░░░░░░░░]"
+        echo " [MUTE] $(get_volume)"
     else
         VOL=$(get_volume)
         if [ "$VOL" -ge 90 ]; then icon=" [████████]"
@@ -17,7 +17,8 @@ get_output() {
         elif [ "$VOL" -ge 30 ]; then icon=" [███░░░░░]"
         elif [ "$VOL" -ge 10 ]; then icon=" [█░░░░░░░]"
         else icon=" [░░░░░░░░]"; fi
-        echo "$icon"
+        
+        echo "$icon $VOL"
     fi
 }
 
@@ -26,7 +27,6 @@ get_output
 
 # 2. Listen for changes using pactl
 pactl subscribe | while read -r event; do
-    # Only update if the event involves a 'sink' (audio output)
     if echo "$event" | grep -q "sink"; then
         get_output
     fi

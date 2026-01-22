@@ -1,6 +1,6 @@
 ;; --- Listeners ---
 (deflisten keyboard_layout :initial " [..]" "~/.config/eww/mine/modules/kay.sh")
-(deflisten info            :initial ""    "~/.config/eww/mine/modules/info.sh")
+(deflisten info            :initial ""    "~/.config/eww/mine/modules/infow.sh")
 (deflisten music_data      :initial ""       "~/.config/eww/mine/modules/music.sh")
 (deflisten volume_status   :initial ""  "~/.config/eww/mine/modules/volume.sh")
 (deflisten backlight_status  :initial ""  "~/.config/eww/mine/modules/backlight.sh")
@@ -22,7 +22,7 @@
       (label :text keyboard_layout))
 
     (eventbox :onscroll "[[ \"{}\" == \"up\" ]] && pamixer -i 1 || pamixer -d 1"
-      (button :class {volume_status =~ '' || volume_status =~ 'MUTE' ? "pill-button vol-muted" : "pill-button vol-btn"}
+    (button :class {volume_status =~ '' || volume_status =~ 'MUTE' ? "pill-button vol-muted" : "pill-button vol-btn"}
               :onclick "pamixer -t"
               :onrightclick "pavucontrol &"
         (label :text volume_status)))

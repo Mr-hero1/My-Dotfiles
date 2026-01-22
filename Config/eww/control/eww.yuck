@@ -2,33 +2,49 @@
 (defpoll clock_time :interval "20m" "date +%H:")
 (defpoll clock_minute :interval "20s" "date +%M:")
 (defpoll clock_sec :interval "1s" "date +%S")
-
+(defpoll sys1_stats :interval "2s" "~/.config/eww/control/modules/sys1_info.sh")
+(defpoll sys2_stats :interval "2s" "~/.config/eww/control/modules/sys2_info.sh")
 (defpoll volume_percent :interval "1s" "pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1")
 (defpoll volume_muted :interval "1s" "pactl get-sink-mute @DEFAULT_SINK@ | grep -o 'yes' || echo 'no'")
 (defpoll brightness_percent :interval "1s" "brightnessctl -m | cut -d, -f4 | sed 's/%//'")
+(defpoll music_title :interval "1s" "playerctl metadata --format '{{title}}' || echo 'Nothing Playing'")
+(defpoll music_artist :interval "1s" "playerctl metadata --format '{{artist}}' || echo 'Unknown Artist'")
+(defpoll music_status :interval "1s" "playerctl status 2>/dev/null")
+(defpoll msic_bar :interval "2s" "~/.config/eww/control/modules/music_bar.sh")
+(defpoll thum :interval "2s" "~/.config/eww/control/modules/thum.sh")
 
 ;; Main Content Widget
 (defwidget box_content []
-  (box :class "main-container" :orientation "h" :space-evenly false
-    (box :class "center-section" :hexpand true
-      (box :class "triple-stack" :orientation "h" :spacing 15 :valign "center" :space-evenly false
-        
-        ;; Clock Section
-        (box :class "time-container" :orientation "h" :space-evenly false :halign "center"
-          (label :class "hour" :text "${clock_time}")
-          (label :class "minute" :text "${clock_minute}")
-          (label :class "second" :text clock_sec))
+  (centerbox :orientation "h" :class "main-container"
     
-        ;; Shortcuts Section
-        (box :class "shortcuts-row" :orientation "h" :spacing 12 :halign "center"
-          (shortcut :icon "browser.svg"  :action "helium-browser & disown")
-          (shortcut :icon "terminal.svg" :action "foot -D ~ & disown")
-          (shortcut :icon "files.svg"    :action "foot -D ~ yazi & disown")
-          (shortcut :icon "editor.svg"   :action "lite-xl & disown")
-          (shortcut :icon "telegram.svg" :action "flatpak run io.github.kukuruzka165.materialgram/x86_64/stable & disown")
-          (shortcut :icon "music.svg"    :action "foot kew & disown") 
-          (shortcut :icon "inkscape.svg" :action "inkscape & disown") )))))
+    ;; 1. LEFT SECTION (Music)
+    (box :halign "start" :space-evenly false :spacing 10
+      (eventbox :onscroll "[[ '{}' == 'up' ]] && playerctl next || playerctl previous"
+                :onclick "playerctl play-pause"
+                :onrightclick "playerctl next"
+        (box :class "music-box" :orientation "h" :space-evenly false :spacing 10
+          (button :class "album-art" 
+               :style "background-image: url('${thum}');" 
+               :width 90 :height 50
+            (label :class "play-overlay" :text {music_status == "Playing" ? "" : "󰐊"}))
+          (box :orientation "v" :class "music-info" :valign "center" :spacing 2
+            (label :class "song-title" :text music_title :limit-width 20 :xalign 0)
+            (label :class "song-artist" :text music_artist :limit-width 20 :xalign 0)
+            (box :class "music-bar-container" :width 150
+              (scale :min 0 :max 101 :active false :value msic_bar :class "music-bar"))))))
 
+    ;; 2. CENTER SECTION (Clock)
+    (box :halign "center" :class "time-container" :space-evenly false
+      (label :class "hour" :text clock_time)
+      (label :class "minute" :text clock_minute)
+      (label :class "second" :text clock_sec))
+
+    ;; 3. RIGHT SECTION (System Stats)
+    (box :halign "end" :class "sys-stats-box" :orientation "v" :spacing 4
+      (label :text sys1_stats :class "sys-label")
+      (label :text sys2_stats :class "sys-label"))
+  )
+)
 ;; Shortcut Widget Helper
 (defwidget shortcut [icon action]
   (button :onclick "${action} & eww -c ~/.config/eww/control close box" :class "app-btn"
@@ -39,5 +55,5 @@
   :monitor 0
   :stacking "overlay"
   :focusable true
-  :geometry (geometry :x "0px" :y "0px" :width "0%" :height "11%" :anchor "center")
+  :geometry (geometry :x "0px" :y "0px" :width "100%" :height "6%" :anchor "bottom center")
     (box_content))

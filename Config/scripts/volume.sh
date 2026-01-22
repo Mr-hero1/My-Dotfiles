@@ -1,7 +1,12 @@
 set -e
 get_volume() { pamixer --get-volume; }
 
-show_notif() { notify-send -u low -a sysl -t 2000 -h string:x-dunst-stack-tag:osd -h int:value:"$2" "$1"; }
+show_notif() { 
+    # Using x-canonical-private-synchronous instead of dunst-stack-tag
+    notify-send -u low -a sysl -t 2000 \
+    -h string:x-canonical-private-synchronous:osd \
+    -h int:value:"$2" "$1" 
+}
 
 rate_limit() {
     local f=/tmp/last_$1 now

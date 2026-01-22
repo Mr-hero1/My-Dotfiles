@@ -1,9 +1,7 @@
 #!/bin/bash
-BAT=$(ls /sys/class/power_supply | grep BAT | head -n 1)
-[ -z "$BAT" ] && echo "󰂎 No Bat" && exit 0
 
-PERCENT=$(cat "/sys/class/power_supply/$BAT/capacity")
-STATUS=$(cat "/sys/class/power_supply/$BAT/status")
+PERCENT=$(cat "/sys/class/power_supply/BAT0/capacity")
+STATUS=$(cat "/sys/class/power_supply/BAT0/status")
 
 [ "$STATUS" = "Charging" ] && CHARGE="󱐋" || CHARGE=""
 
@@ -16,4 +14,4 @@ elif [ "$PERCENT" -ge 40 ]; then bar="󰁾 [███░░░░░]"
 elif [ "$PERCENT" -ge 20 ]; then bar="󰁼 [██░░░░░░]"
 else bar="󰁺 [░░░░░░░░]"; fi
 
-echo "$bar$CHARGE"
+echo "$bar$CHARGE $PERCENT"

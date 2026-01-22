@@ -1,8 +1,8 @@
 {
   "executable_script_doc": "The path to executable script used after a wallpaper is set. The script is sent the monitor identifier, wallpaper path and the serialized saved_wallpapers state.",
-  "executable_script": "/home/Dr/.config/waytrogen/hyprpaper_fast_switch.sh",
+  "executable_script": "/home/dr/.config/waytrogen/hyprpaper_fast_switch.sh",
   "wallpaper_folder_doc": "The path to the currently selected wallpaper folder. Note: The path cannot have a trailing forward slash.",
-  "wallpaper_folder": "/home/Dr/Pictures/will",
+  "wallpaper_folder": "/home/dr/Pictures/will",
   "saved_wallpapers_doc": "The collection of the currently saved wallpapers with their corresponding monitor, path and changer.",
   "saved_wallpapers": [
     {
@@ -11,22 +11,17 @@
       "changer": "Hyprpaper"
     },
     {
-      "monitor": "All",
-      "path": "/home/Dr/Pictures/will/004-desolate.png",
-      "changer": "Hyprpaper"
-    },
-    {
       "monitor": "eDP-1",
-      "path": "/home/Dr/Pictures/will/Suprcold.png",
+      "path": "/home/dr/Pictures/will/wallhaven-6o91rq_1920x1080-oled.png",
       "changer": "Hyprpaper"
     }
   ],
   "monitor_doc": "The internal numeric identifier in the monitor dropdown used by dconf for the currently selected monitor. Do not change unless you know what you are doing.",
   "monitor": 1,
   "sort_by_doc": "The internal numeric identifier in the changer dropdown used by dconf for the currently selected sorting option. Do not change unless you know what you are doing.",
-  "sort_by": 1,
+  "sort_by": 0,
   "invert_sort_doc": "The boolean flag to invert the currently selected sort-by option in the sort dropdown used by dconf.",
-  "invert_sort": true,
+  "invert_sort": false,
   "changer_doc": "The internal numeric identifier in the changer dropdown used by dconf for the currently selected changer. Do not change unless you know what you are doing.",
   "changer": 0,
   "image_filter_doc": "The search string for the wallpapers.",

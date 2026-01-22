@@ -2,10 +2,20 @@
 
 .workspace-widget {
   color: $fg-color;
-  font-size: 26px;
+  font-size: 29px;
   font-family: $font1;
   font-weight: bolder;
   padding-left: 4px;
+
+  text-shadow: 
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0px  2px 0 #000,
+     0px -2px 0 #000,
+     2px  0px 0 #000,
+    -2px  0px 0 #000;
 
   &.background {
     background: $bg-off;

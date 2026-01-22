@@ -16,46 +16,62 @@ $font1 : Unifont;
   all: unset; /* Remove default GTK styling */
   font-weight: bold;
   background-color: $bg-off;
+  color: $fg-color;
 }
 
 .main-container {
   background-color: $bg-blur;
   border: 2px solid $fg-color;
-  border-radius: 24px;
+  border-radius: 0px;
 }
 
 .time-container {
-  padding-left: 10px;
-  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-bottom: 10px;
   font-family: $font1;
-  font-size:   44px;
+  font-size:   60px;
   font-weight: bold;
   color:   $fg-color;
 }
 
-/* --- Shortut Button Styles --- */
-.shortcuts-row {
-  padding-right: 10px;
-}
-.app-btn {
-  border-radius: 15px;
-  padding: 5px;
-  transition: all 200ms ease-in-out;
+.music-box{
+  padding: 12px;
+  margin: 10px;
+ } 
+
+.music-bar trough {
+  background-color: $muted-color; /* Using the grey variable */
+  border-radius: $border-radius;
+  min-height: 8px;
+  min-width: 150px;
 }
 
-/* HOVER STATE: The "Glow" */
-.app-btn:hover {
-  background: rgba(137, 180, 250, 0.4);
-  box-shadow: 0 0 15px 0px rgba(137, 180, 250, 0.9);
+.music-bar highlight {
+  background-color: $secondary-color; /* Green progress for visual harmony */
+  border-radius: $border-radius;
 }
 
-.app-btn:focus {
-  background: rgba(250, 137, 242, 0.4);
-  box-shadow: 0 0 15px 0px rgba(250, 137, 242, 0.9);
+.album-art {
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  background-position: center;
+  margin-right: 10px;
 }
 
-/* CLICK / FOCUS STATE: Intense Glow */
-.app-btn:active {
-  box-shadow: 0 0 25px 5px rgba(137, 180, 250, 0.6);
-  transition: all 50ms; /* Fast snap when clicking */
+.album-art:hover {
+  background-color: rgba(60, 60, 60, 0.8);
+  box-shadow: 0 0 10px rgba(243, 139, 168, 0.9);
+}
+
+.play-overlay {
+  transition: all 300ms ease;
+  font-size: 40px;
+  opacity: 1; /* Hidden by default */
+}
+
+.sys-stats-box {
+  font-size: 13px;
+  padding: 12px;
+  margin: 10px;
 }

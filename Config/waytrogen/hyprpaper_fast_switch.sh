@@ -4,11 +4,14 @@
 WALLPAPER="$2"
 
 # Path to Hyprland wallpaper config
-CONF_FILE="/home/Dr/.config/hypr/hyprpaper.conf"
+CONF_FILE="/home/dr/.config/hypr/hyprpaper.conf"
 
-# Write the two lines to the config (replace the entire file)
-{
-    echo "preload=$WALLPAPER"
-    echo "wallpaper=eDP-1,$WALLPAPER"
-} > "$CONF_FILE"
-
+# Write the wallpaper block to the config
+cat > "$CONF_FILE" <<EOF
+wallpaper {
+    monitor = eDP-1
+    path = $WALLPAPER
+    fit_mode = cover
+}
+splash = false
+EOF

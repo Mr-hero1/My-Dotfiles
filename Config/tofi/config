@@ -1,49 +1,53 @@
+# --- General ---
 terminal = foot
-
-# Font
 font = "Hack Nerd Font"
 font-size = 12
 
-# Window Style
-horizontal = true
-anchor = bottom
-width = 100%
-height = 40
+# --- Window Style ---
+horizontal = false
+anchor = center
+width = 25%
+height = 30%
 exclusive-zone = 0
+
+# Colors (Catppuccin Mocha)
 background-color = #1e1e2e
-outline-width = 0
-border-width = 3
+outline-width = 1
+outline-color = #cdd6f4
+border-width = 0
 border-color = #cdd6f4
+
+# Layout
 min-input-width = 120
-result-spacing = 30
-padding-top = 10
-padding-bottom = 10
-padding-left = 15
-padding-right = 15
+result-spacing = 15
+padding-top = 15
+padding-bottom = 15
+padding-left = 10
+padding-right = 10
 clip-to-padding = false
 
-# Text style
-prompt-text = "Search:"
-prompt-padding = 30
-text-color = #cdd6f4
+# --- Prompt Style ---
+prompt-text = ">"
+prompt-padding = 5
+prompt-color = #bac2de
 
-# Prompt
-border-color = #cdd6f4
-border-width = 2
+# --- Input Section (The "Search" box) ---
+input-color = #cdd6f4
+input-background-padding = 5, 12
+input-background-corner-radius = 0
 
-# Input
-input-color = #ffffffff
-input-background-padding = 0, 10
-input-background-corner-radius = 12
+# Border for the Input/Prompt Area
+# This creates the "box" look around where you type
 
-# Results
-alternate-result-color = #89dceb
-alternate-result-background-padding = 0, 10
-alternate-result-background-corner-radius = 12
-
-# Selection
+# --- Results ---
+default-result-color = #bac2de
 selection-color = #11111b
 selection-background = #9399b2
-selection-background-padding = 4, 10
-selection-background-corner-radius = 12
-selection-match-color = #b4befe
+selection-background-corner-radius = 0
+selection-background-padding = 5, 12
+selection-match-color = #f38ba8
+
+# Alternate Result Styling
+alternate-result-color = #a6adc8
+alternate-result-background-corner-radius = 0
+
