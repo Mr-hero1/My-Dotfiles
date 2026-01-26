@@ -35,14 +35,18 @@ $font1 : Unifont;
 }
 
 .music-box{
-  padding: 12px;
-  margin: 10px;
+  padding: 5px;
+  margin: 5px;
  } 
 
+.song-title {
+  color: $accent-color;
+}
+
 .music-bar trough {
-  background-color: $muted-color; /* Using the grey variable */
+  background-color: $muted-color; 
   border-radius: $border-radius;
-  min-height: 8px;
+  min-height: 10px;
   min-width: 150px;
 }
 
@@ -56,7 +60,7 @@ $font1 : Unifont;
   background-size: cover;
   border-radius: 5px;
   background-position: center;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .album-art:hover {

@@ -32,14 +32,9 @@
         (label :text backlight_status))))
 
   ;; CENTER ---------------------------------
-  (box :class "middle-section" :halign "center" :space-evenly false :spacing 18
+  (box :class "middle-section" :halign "center" :space-evenly false :spacing 0
     (box :class "pill"
-      (label :text info :limit-width 30))
-    
-    (button :class "pill-button music-pill" 
-            :onclick "~/.config/eww/mine/modules/music.sh --toggle"
-            :onrightclick "~/.config/eww/mine/modules/music.sh --next"
-      (label :text music_data :limit-width 80)))
+      (label :text info :limit-width 150)))
 
   ;; RIGHT ---------------------------------
   (box :class "right-section" :halign "end" :space-evenly false :spacing 8
