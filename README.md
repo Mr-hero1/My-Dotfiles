@@ -38,5 +38,5 @@ Personal dotfiles for Hyprland configuration.
 -  Catppuccin / Kvantum
     - URL: https://github.com/catppuccin/Kvantum
     
-- eww configuration docs (official)  
+- eww configuration docs
   - URL: https://elkowar.github.io/eww/configuration.html
