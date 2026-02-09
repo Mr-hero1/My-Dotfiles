@@ -1,4 +1,4 @@
-# 🐧 [Nightly Rice]
+# 🐧 [Hypr Rice]
 Personal dotfiles for Hyprland configuration.
 
 ## 📸 Screenshots
