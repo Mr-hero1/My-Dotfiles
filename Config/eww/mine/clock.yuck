@@ -1,5 +1,5 @@
 (defwidget clock []
-    (box :class "clock-label" :space-evenly "false" :orientation "h" :spacing "3" :valign "center" :halign  "end"  
+    (box :class "clock-label" :space-evenly "false" :orientation "h" :spacing "3" :valign "center" :halign  "center"  
       (label :text clock_time )
       (label :text clock_minute )
       (label :text clock_sec )
@@ -22,5 +22,5 @@
     :y "0"
     :width "1280px"
     :height "20px"
-    :anchor "top right")
+    :anchor "top center")
   (clock))

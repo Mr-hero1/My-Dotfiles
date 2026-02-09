@@ -7,7 +7,6 @@
 .clock {
   background: $bg-off;
   border-radius: 0px;
-  /* Top, Right, Left borders - using $accent-color for a distinct look */
   border-top: 2px solid $fg-color;
   border-right: 2px solid $fg-color;
   border-left: 2px solid $fg-color;
@@ -18,10 +17,8 @@
 .clock-label {
   border: none;
   font-family: $font1;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
   color: $fg-color;  /* Using Main Text color */
   padding-top: 4px;
-  padding-right: 8px;
-  -webkit-text-stroke: 0px; /* Removed hex to keep it clean */
 }

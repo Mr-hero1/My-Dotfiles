@@ -1,23 +1,19 @@
 /* --- STYLES --- */
 
 .workspace-widget {
+  min-height: 0px;
+  border: none;
+  margin: 0;
+  background: $bg-off;
   color: $fg-color;
-  font-size: 29px;
-  font-family: $font1;
-  font-weight: bolder;
-  padding-left: 4px;
-
-  text-shadow: 
-    -2px -2px 0 #000,
-     2px -2px 0 #000,
-    -2px  2px 0 #000,
-     2px  2px 0 #000,
-     0px  2px 0 #000,
-     0px -2px 0 #000,
-     2px  0px 0 #000,
-    -2px  0px 0 #000;
-
-  &.background {
-    background: $bg-off;
-  }
+  font-size: 3px;
+  font-weight: normal;
+  padding: 0px;
+  
+.active {
+  background: $secondary-color;
 }
+
+.inactive {
+  background: $fg-color;
+}}

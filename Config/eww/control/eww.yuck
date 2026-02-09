@@ -30,7 +30,7 @@
             (label :class "song-title" :text music_title :limit-width 22 :xalign 0)
             (label :class "song-artist" :text music_artist :limit-width 22  :xalign 0)
             (box :class "music-bar-container" :width 150
-              (scale :min 0 :max 101 :onchange "playerctl position $(echo \"$(playerctl metadata mpris:length) / 1000000 * {} / 100\" | bc -l)" :value msic_bar :class "music-bar")))))
+              (scale :min 0 :max 101 :onchange "playerctl position $(echo \"$(playerctl metadata mpris:length) / 1000000 * {} / 100\" | bc)" :value msic_bar :class "music-bar")))))
 
     ;; 2. CENTER SECTION (Clock)
     (box :halign "center" :class "time-container" :space-evenly false
