@@ -1,4 +1,4 @@
-# 🐧 [Hypr Rice]
+# 🐧 [NIRI Rice]
 Personal dotfiles for Hyprland configuration.
 
 ## 📸 Screenshots
@@ -15,7 +15,7 @@ Personal dotfiles for Hyprland configuration.
 | Component    | Software     |
 |--------------|--------------|
 | OS           | EndeavourOS  |
-| WM / DE      | Hyprland     |
+| WM / DE      | Niri         |
 | Terminal     | Foot         |
 | Shell        | fish         |
 | Bar          | Eww          |
