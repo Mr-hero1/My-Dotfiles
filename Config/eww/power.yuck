@@ -2,9 +2,9 @@
   (box :class "powermenu-frame"
     (box :class "powermenu-body" :spacing 10 :halign "center" :valign "center" :orientation "v"
       
-      (button :class "p-btn back" :onclick "eww -c ~/.config/eww/power close powermenu" (label :text "BACK" :angle 270))
+      (button :class "p-btn back" :onclick "eww close powermenu" (label :text "BACK" :angle 270))
       
-      (button :class "p-btn lock" :onclick "hyprlock & eww -c ~/.config/eww/power close powermenu" (label :text "LOCK" :angle 270))
+      (button :class "p-btn lock" :onclick "hyprlock & eww close powermenu" (label :text "LOCK" :angle 270))
       
       (button :class "p-btn hibernate" :onclick "systemctl hibernate" (label :text "HIBN" :angle 270))
       
@@ -26,6 +26,6 @@
   :windowtype "normal"
   :wm-ignore false
   :focusable true
-  :geometry (geometry :x "0px" :y "0px" :width "0%" :height "0%" :anchor "center right")
-  (eventbox :onhoverlost "eww -c ~/.config/eww/power close powermenu"
+  :geometry (geometry :x "8px" :y "0px" :width "0%" :height "0%" :anchor "center right")
+  (eventbox :onhoverlost "eww close powermenu"
     (powermenu_layout)))
