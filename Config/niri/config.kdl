@@ -21,13 +21,20 @@ input {
 }
 
 layout {
-    gaps 6
+    gaps 8
+    
     preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
+        fixed 446
+        fixed 672 
+        fixed 900
     }
 
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
     default-column-width {}
 
     focus-ring {
@@ -59,17 +66,27 @@ cursor {
 }
 
 animations {
-    slowdown 0.5
+    slowdown 1
+        window-open {
+        curve "cubic-bezier" 0.05 0.7 0.1 1
+    }
+        window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+    
 }
 
-spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/dr/Pictures/Wallpapers/wanderer.jpg"
+spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/dr/Pictures/Wallpapers/Caspar_David_Friedrich.png"
 spawn-at-startup "mako"
 spawn-at-startup "eww" "open" "bar"
 spawn-at-startup "hypridle"
 spawn-at-startup "copyq" "--start-server"
 spawn-at-startup "rclone" "mount" "Drive:" "/home/dr/Drive" "--vfs-cache-mode" "full"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
 
 window-rule {
     match app-id=""
@@ -84,12 +101,13 @@ window-rule {
 window-rule {
     match app-id="com.github.hluk.copyq"
     open-floating true
+    open-focused true
     focus-ring {
         off
     }
-    default-column-width { fixed 520; }
-    default-window-height { fixed 220; }
-    default-floating-position x=0 y=0 relative-to="bottom"
+    default-column-width { fixed 320; }
+    default-window-height { fixed 720; }
+    default-floating-position x=0 y=0 relative-to="left"
 }
 
 window-rule {
@@ -97,9 +115,15 @@ window-rule {
     default-column-width { fixed 400; }
 }   
 
+
 layer-rule {
     match namespace="^launcher$"
 }
+
+layer-rule {
+    match namespace="gtk-layer-shell"
+}
+
 
 overview {
     backdrop-color "#11111b" 
@@ -271,6 +295,7 @@ environment {
 
     // --- Backends ---
     GDK_BACKEND "wayland"
+    XDG_CURRENT_DESKTOP "GNOME:niri"
     QT_QPA_PLATFORM "wayland;xcb"
     CLUTTER_BACKEND "wayland"
     SAL_USE_VCLPLUGIN "gtk3"

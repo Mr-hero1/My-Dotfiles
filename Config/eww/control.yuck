@@ -1,0 +1,103 @@
+;; Variables
+(defpoll time :interval "10s" "date '+%H:%M'")
+(defpoll date :interval "1h" "date '+%A, %d %B %Y'")
+
+(defpoll volume_percent :interval "1s" "pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1")
+(defpoll volume_muted :interval "1s" "pactl get-sink-mute @DEFAULT_SINK@ | grep -o 'yes' || echo 'no'")
+(defpoll brightness_percent :interval "1s" "brightnessctl -m | cut -d, -f4 | sed 's/%//'")
+(defpoll music_title :interval "5s" "playerctl metadata --format '{{title}}' || echo 'Nothing Playing'")
+(defpoll music_artist :interval "5s" "playerctl metadata --format '{{artist}}' || echo 'Unknown Artist'")
+(defpoll music_status :interval "1s" "playerctl status")
+(defpoll msic_bar :interval "1s" "playerctl metadata --format '{{position}} {{mpris:length}}' 2>/dev/null | awk '{print int($1/$2*100)}'")
+(defpoll thum :interval "2s" "~/.config/eww/modules/thum.sh")
+
+
+(defpoll keyboard_layout :interval "1s" "~/.config/eww/modules/kay.sh")
+(defpoll wifi_status      :interval "20s" "~/.config/eww/modules/wifi.sh")
+(defpoll bluetooth_status :interval "30s" "~/.config/eww/modules/bluetooth.sh")
+(defpoll battery_status   :interval "2s"  "~/.config/eww/modules/battery.sh")
+
+(deflisten volume_status   :initial ""  "~/.config/eww/modules/volume.sh")
+(deflisten backlight_status  :initial ""  "~/.config/eww/modules/backlight.sh")
+
+;; Main Content Widget
+(defwidget box_content []
+    (box :class "the-box" :orientation "v" :space-evenly false :spacing 0 :halign "center"
+    ;; Clock and Date Section
+        (box :class "time-date-box" :orientation "v" :space-evenly false :spacing -15 :halign "center"
+            (label :class "time-label" :text time)
+            (label :class "date-label" :text date))
+
+    (box :height 295 )
+                
+     ;; Vol & Light slider
+        (box :class "slider-box-container" :orientation "v" :space-evenly true :halign "center" :spacing 10
+      ;; Volume Slider Overlay
+    (box :class "slider-wrapper"
+            (overlay :class "battery" :halign "center" 
+            (scale :class  {battery_status =~ '󱐋' ? 'battery charging' :
+                  battery_status =~ '󰁺' ? 'battery critical' :
+                  battery_status =~ '󰁼 ' || battery_status =~ '󰁾 ' ? 'battery low' : 
+                  'battery normal'}
+                   :value {replace(battery_status, "[^0-9]", "")} 
+                :active false
+                   :min 0
+                   :max 101)
+            (label :class "slider-text" 
+                   :halign "start" 
+                   :text battery_status)))
+
+    (box :class "slider-wrapper"
+        (overlay
+            (scale :class {matches(volume_status, " ") ? "vol-muted" : "vol-bar"}
+                   :value {replace(volume_status, "[^0-9]", "")} 
+                   :min 0
+                   :max 101
+                   :onchange "pamixer --set-volume {}")
+            (label :class "slider-text" 
+                   :halign "start" 
+                   :text volume_status)))
+
+    ;; Brightness Slider Overlay
+    (box :class "slider-wrapper"
+        (overlay
+            (scale :class "bright-bar"
+                   :value  {replace(backlight_status, "[^0-9]", "")}
+                   :min 0
+                   :max 101
+                   :onchange "brightnessctl set {}%")
+            (label :class "slider-text" 
+                   :halign "start" 
+                   :text backlight_status))))
+
+       ;; mine box
+        (box :class "mine-box" :orientation "h" :space-evenly true :halign "center" :spacing 25
+            (button :class "wifi" :onclick "foot -o colors.regular4=1e1e2e -e sh -c 'sleep 0.1; nmtui-connect' &" (label :class "Wifi-label" :text  wifi_status))
+            (button :class "blu" :onclick "foot bluetuith &" (label :class "Blu-label"  :text  bluetooth_status))
+            (button :class "key" :onclick "niri msg action switch-layout next" (label :class "Lang-label" :text  keyboard_layout)))
+            
+    ;; Music Section
+        (box :class "music-box" :orientation "h" :space-evenly false :spacing 5 :halign "center"
+          (button :class "album-art" 
+                :onclick "playerctl play-pause"
+                :onrightclick "playerctl next"
+                :style "background-image: url('${thum}');" 
+                :width 80 :height 80
+            (label :class "play-overlay" :text {music_status == "Playing" ? "" : ""}))
+          (box :orientation "v" :class "music-info" :valign "center" :spacing -5
+            (label :class "song-title" :text music_title :limit-width 12 :xalign 0)
+            (label :class "song-artist" :text music_artist :limit-width 22  :xalign 0)
+            (box :class "music-bar-container" :width 220
+            (scale :min 0 :max 101 :onchange "playerctl position $(echo \"$(playerctl metadata mpris:length) / 1000000 * {} / 100\" | bc)" :value msic_bar :class "music-bar")))
+        )
+    )
+)
+
+;; Window Definition
+(defwindow box
+  :monitor 0
+  :stacking "fg"
+  :exclusive true
+  :focusable true
+  :geometry (geometry :x "0px" :y "0px" :width "350px" :height "100%" :anchor "center left")
+    (box_content))
