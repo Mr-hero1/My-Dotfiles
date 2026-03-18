@@ -1,5 +1,5 @@
 # 🐧 [NIRI Rice]
-Personal dotfiles for Hyprland configuration.
+Personal dotfiles for Niri configuration.
 
 ## 📸 Screenshots
 <p align="center">
