@@ -2,23 +2,20 @@
 (defpoll time :interval "10s" "date '+%H:%M'")
 (defpoll date :interval "1h" "date '+%A, %d %B %Y'")
 
-(defpoll volume_percent :interval "1s" "pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1")
-(defpoll volume_muted :interval "1s" "pactl get-sink-mute @DEFAULT_SINK@ | grep -o 'yes' || echo 'no'")
-(defpoll brightness_percent :interval "1s" "brightnessctl -m | cut -d, -f4 | sed 's/%//'")
-(defpoll music_title :interval "5s" "playerctl metadata --format '{{title}}' || echo 'Nothing Playing'")
-(defpoll music_artist :interval "5s" "playerctl metadata --format '{{artist}}' || echo 'Unknown Artist'")
-(defpoll music_status :interval "1s" "playerctl status")
-(defpoll music_bar :interval "1s" "playerctl metadata --format '{{position}} {{mpris:length}}' 2>/dev/null | awk '{print int($1/$2*100)}'")
-(defpoll thum :interval "2s" "~/.config/eww/modules/thum.sh")
+(deflisten song_title :initial "" "playerctl metadata --format '{{title}}' --follow")
+(deflisten song_artist   :initial "Unknown Artist" "playerctl metadata --format '{{artist}}' --follow || echo 'Unknown Artist'")
+(deflisten player_status :initial "Stopped" "playerctl metadata --format '{{status}}' --follow || echo 'Stopped'")
+(defpoll music_bar :interval "4s" "playerctl metadata --format '{{position}} {{mpris:length}}' 2>/dev/null | awk '{print int($1/$2*100)}'")
+(defpoll thum :interval "3s" "~/.config/eww/modules/thum.sh")
 
 
-(defpoll keyboard_layout :interval "1s" "~/.config/eww/modules/kay.sh")
-(defpoll wifi_status      :interval "20s" "~/.config/eww/modules/wifi.sh")
-(defpoll bluetooth_status :interval "30s" "~/.config/eww/modules/bluetooth.sh")
-(defpoll battery_status   :interval "2s"  "~/.config/eww/modules/battery.sh")
+(defpoll keyboard_layout :interval "2s" "~/.config/eww/modules/kay.sh")
+(defpoll bluetooth_status :interval "3s" "~/.config/eww/modules/bluetooth.sh")
 
-(deflisten volume_status   :initial ""  "~/.config/eww/modules/volume.sh")
-(deflisten backlight_status  :initial ""  "~/.config/eww/modules/backlight.sh")
+(deflisten battery_status :initial "󰁺 0" "~/.config/eww/modules/battery.sh")
+(deflisten wifi_status   :initial "󰪎  OFF"  "~/.config/eww/modules/wifi.sh")
+(deflisten volume_status   :initial "0"  "~/.config/eww/modules/volume.sh")
+(deflisten backlight_status  :initial "0"  "~/.config/eww/modules/backlight.sh")
 
 ;; Main Content Widget
 (defwidget panel_content []
@@ -28,7 +25,7 @@
             (label :class "time-label" :text time)
             (label :class "date-label" :text date))
 
-    (box :height 295 )
+    (box :height 310 )   
                 
      ;; Vol & Light slider
         (box :class "slider-box-container" :orientation "v" :space-evenly true :halign "center" :spacing 10
@@ -71,10 +68,10 @@
                    :text backlight_status))))
 
        ;; mine box
-        (box :class "mine-box" :orientation "h" :space-evenly true :halign "center" :spacing 25
-            (button :class "wifi" :onclick "foot -o colors.regular4=1e1e2e -e sh -c 'sleep 0.1; nmtui-connect' &" (label :class "Wifi-label" :text  wifi_status))
-            (button :class "blu" :onclick "foot bluetuith &" (label :class "Blu-label"  :text  bluetooth_status))
-            (button :class "key" :onclick "niri msg action switch-layout next" (label :class "Lang-label" :text  keyboard_layout)))
+        (box :class "mine-box" :orientation "h" :space-evenly true :halign "center" :spacing 15
+            (button :class "wifi" :onrightclick "nmcli radio wifi | grep -q 'enabled' && nmcli radio wifi off || nmcli radio wifi on" :onclick "foot -o colors.regular4=1e1e2e -e sh -c 'sleep 0.1; nmtui-connect' &" (label :class "Wifi-label" :text  wifi_status))
+            (button :class "blu" :onrightclick "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on" :onclick "foot bluetuith &" (label :class "Blu-label"  :text  bluetooth_status))
+            (button :class "key" :onrightclick "niri msg action switch-layout prev" :onclick "niri msg action switch-layout next" (label :class "Lang-label" :text  keyboard_layout)))
             
     ;; Music Section
         (box :class "music-box" :orientation "h" :space-evenly false :spacing 5 :halign "center"
@@ -83,10 +80,10 @@
                 :onrightclick "playerctl next"
                 :style "background-image: url('${thum}');" 
                 :width 80 :height 80
-            (label :class "play-overlay" :text {music_status == "Playing" ? "" : ""}))
+            (label :class "play-overlay" :text {player_status == "Playing" ? "" : ""}))
           (box :orientation "v" :class "music-info" :valign "center" :spacing -5
-            (label :class "song-title" :text music_title :limit-width 12 :xalign 0)
-            (label :class "song-artist" :text music_artist :limit-width 22  :xalign 0)
+            (label :class "song-title" :text "${song_title == '' ? 'No Music Playing' : song_title}" :limit-width 12 :xalign 0)
+            (label :class "song-artist" :text  "${song_artist == '' ? 'Unknown Artist' : song_artist}"  :limit-width 22  :xalign 0)
             (box :class "music-bar-container" :width 220
             (scale :min 0 :max 101  :onchange "playerctl position $(echo \"$(playerctl metadata mpris:length) / 1000000 * {} / 100\" | bc)+" :value {music_bar == "" ? 0 : music_bar} :class "music-bar")))
         )
