@@ -1,17 +1,33 @@
 #!/bin/bash
 
-PERCENT=$(cat "/sys/class/power_supply/BAT0/capacity")
-STATUS=$(cat "/sys/class/power_supply/BAT0/status")
+# Initial values
+last_status=""
+last_percent=""
 
-[ "$STATUS" = "Charging" ] && CHARGE="󱐋" || CHARGE=""
+while true; do
+    PERCENT=$(cat "/sys/class/power_supply/BAT0/capacity")
+    STATUS=$(cat "/sys/class/power_supply/BAT0/status")
 
-if [ "$PERCENT" -ge 90 ]; then bar="󰁹 "
-elif [ "$PERCENT" -ge 80 ]; then bar="󰂂 "
-elif [ "$PERCENT" -ge 70 ]; then bar="󰂁 "
-elif [ "$PERCENT" -ge 60 ]; then bar="󰂀 "
-elif [ "$PERCENT" -ge 50 ]; then bar="󰁾 "
-elif [ "$PERCENT" -ge 40 ]; then bar="󰁾 "
-elif [ "$PERCENT" -ge 20 ]; then bar="󰁼 "
-else bar="󰁺 "; fi
+    if [ "$STATUS" != "$last_status" ] || [ "$PERCENT" != "$last_percent" ]; then
+        
+        [ "$STATUS" = "Charging" ] && CHARGE="󱐋" || CHARGE=""
 
-echo "$bar$CHARGE $PERCENT"
+        if [ "$PERCENT" -ge 90 ]; then bar="󰁹 "
+        elif [ "$PERCENT" -ge 80 ]; then bar="󰂂 "
+        elif [ "$PERCENT" -ge 70 ]; then bar="󰂁 "
+        elif [ "$PERCENT" -ge 60 ]; then bar="󰂀 "
+        elif [ "$PERCENT" -ge 50 ]; then bar="󰁾 "
+        elif [ "$PERCENT" -ge 40 ]; then bar="󰁾 "
+        elif [ "$PERCENT" -ge 20 ]; then bar="󰁼 "
+        else bar="󰁺 "; fi
+
+        echo "$bar$CHARGE $PERCENT"
+
+        last_status="$STATUS"
+        last_percent="$PERCENT"
+
+        sleep 5
+    else
+        sleep 0.1
+    fi
+done
