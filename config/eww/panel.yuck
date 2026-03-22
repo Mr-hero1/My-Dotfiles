@@ -103,5 +103,5 @@
   :stacking "fg"
   :exclusive true
   ;; :focusable true
-  :geometry (geometry :x "0px" :y "0px" :width "300px" :height "100%" :anchor "center left")
+  :geometry (geometry :x "8px" :y "0px" :width "0px" :height "98%" :anchor "center left")
     (panel_content))
