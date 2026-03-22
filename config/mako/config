@@ -1,0 +1,24 @@
+on-button-left=dismiss
+on-button-middle=none
+on-button-right=invoke-default-action
+
+font=Impact 14
+border-radius=4
+#margin=directional
+#padding=directional
+border-size=0
+max-visible=2
+default-timeout=3100
+
+background-color=#181825
+text-color=#cdd6f4
+progress-color=#89b4fa
+
+[urgency=high]
+border-color=#f38ba8
+
+[app-name=sys]
+width=110
+font=Hack Nerd Font Bold 18
+padding= 4,10
+

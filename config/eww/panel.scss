@@ -1,0 +1,208 @@
+// --- Main Window & Container ---
+
+.panel {
+  background-color: $bg-color;
+  border-radius: 0px;  
+  font-family: $font1;
+  font-weight: normal;
+  color: $text;
+}
+
+// --- Time and Date Section ---
+
+.window {
+  padding: 4px 0px;
+  background-color: $bgb-color;
+  border-radius: $radius;
+  margin-top: 8px;
+  min-width: 280px; 
+  color: $text;
+  font-size: 14px;
+}
+
+.time-date-box {
+  padding: 0px 2px;
+  padding-bottom: 35px;
+
+  .time-label {
+    font-size: 210px;
+    margin-top: -15px;
+  }
+  
+  .date-label {
+    font-size: 22px;
+    padding: 2px 0px;
+    min-width: 289px;
+    margin-top: 18px;
+  }
+}
+
+// --- Music Section ---
+.music-box {
+  padding: 10px;
+  background-color: $bgb-color;
+  border-radius: $radius;
+}
+
+.album-art {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  margin-right: 5px;
+  min-height: 80px;
+  min-width: 80px;
+
+  &:hover, &:focus {
+    box-shadow: 0 0 10px rgba(137, 180, 250, 0.9);
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.song-title {
+  font-size: 22px;
+}
+
+.music-bar {
+  trough {
+    background-color: $text; 
+    border-radius: $radius;
+    min-height: 15px;
+    min-width: 100px;
+      &:hover, &:focus {
+    box-shadow: 0 0 10px rgba(137, 180, 250, 0.9);}
+    transition: all 0.2s ease-in-out;
+  }
+
+  highlight {
+    background-color: $blue; 
+    border-radius: $radius;
+  }
+}
+
+.play-overlay {
+  font-size: 50px;
+}
+
+// --- System Info & Controls ---
+.mine-box {
+  background-color: null;
+  padding: 4px 0px;
+  margin: 4px 0px;
+  border-radius: 4px;
+  font-family: $font;
+}
+
+// --- Battery ---
+.battery {
+  padding: 0px;
+  font-family: $font;
+  font-weight: 900;
+
+  scale {
+    trough {
+      background-color: $bgb-color;
+      border-radius: 4px;
+      min-height: 25px; 
+      min-width: 280px; 
+    }
+
+    /* The filled part of the battery bar */
+    highlight {
+      border-radius: 4px;
+    }
+
+    /* Dynamic Colors based on Yuck logic */
+    &.charging highlight {
+      background-color: $green; /* Green */
+    }
+
+    &.critical highlight {
+      background-color: $red; /* Red */
+    }
+
+    &.low highlight {
+      background-color: $peach; /* Orange */
+    }
+
+    &.normal highlight {
+      background-color: $text; /* Default text color */
+    }
+  }
+}
+
+// --- Connectivity (WiFi, Bluetooth, Keys) ---
+.wifi, .blu, .key {
+  background-color: $bgb-color;
+  font-weight: 900;
+  color: $text;
+  border-radius: 4px;
+  padding: 5px 6px;
+  min-width: 75px; 
+  &:hover, &:focus {
+    color: $crust;
+    background-color: $text;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+// --- Sliders (Volume & Brightness) ---
+.slider-box-container {
+  margin-bottom: 10px;
+  min-width: 280px;
+  font-family: $font;
+  font-weight: 900;
+}
+
+.slider-text {
+  font-size: 20px;
+  color: $crust;
+  background-color: rgba(205, 214, 244, 0.2);
+  margin-left: 10px;
+  padding: 0px 8px;
+  border-radius: $radius;
+}
+
+// Grouped trough backgrounds for all sliders
+.vol-bar trough, 
+.bright-bar trough, 
+.vol-muted trough {
+  background-color: $bgb-color;
+  border-radius: $radius;
+  min-height: 25px;
+  min-width: 280px;
+}
+
+.vol-bar:hover ~ .slider-text,
+.vol-bar:focus ~ .slider-text {
+  margin-left: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.vol-muted:hover ~ .slider-text,
+.vol-muted:focus ~ .slider-text {
+  margin-left: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.bright-bar:hover ~ .slider-text,
+.bright-bar:focus ~ .slider-text {
+  margin-left: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+// Individual highlight colors
+.vol-bar highlight {
+  background-color: #b4befe;
+  border-radius: $radius;
+}
+
+.bright-bar highlight {
+  background-color: $yellow;
+  border-radius: $radius;
+}
+
+.vol-muted highlight {
+  background-color: #6c7086;
+  border-radius: $radius;
+}

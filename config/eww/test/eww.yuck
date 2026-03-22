@@ -1,0 +1,11 @@
+(deflisten volume_status   :initial "0"  "~/.config/eww/modules/volume.sh")
+
+(defwidget xray []
+    (box :class "xray-window" :orientation "v" :space-evenly false :spacing 0 :halign "center" (label :text volume_status)))
+
+;; Window Definition
+(defwindow xray
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry :x "-1px" :y "5px" :width "0px" :height "8%" :anchor "top right")
+    (xray))
