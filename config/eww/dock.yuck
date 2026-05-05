@@ -37,9 +37,9 @@
                      :limit-width 35 :xalign 0)
               (box :class "music-bar-container" :width 175
                 (scale :min 0 
-                       :max {song_length > 0 ? song_length : 1} 
+                       :max song_length
                        :active false 
-                       :value {song_position} 
+                       :value song_position 
                        :class "music-bar")))))))
 
 (defwindow dock
