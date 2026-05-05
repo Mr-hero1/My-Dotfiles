@@ -19,24 +19,15 @@ Personal dotfiles for Niri configuration.
 | Terminal     | Foot         |
 | Shell        | fish         |
 | Bar          | Eww          |
-| Theme        | Catppuccin   |
-
-
-## 🚀 Installation
-1. **Clone the repo:**
-   ```bash
-   git clone https://github.com/Mr-hero1/My-Dotfiles.git
-   cd My-Dotfiles
    
 ## 🤓 References & Themes
-- Fausto-Korpsvart / Catppuccin GTK Theme  
-  - URL: https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme  
-
-- catppuccin / qtcreator  
-  - URL: https://github.com/catppuccin/qtcreator
-
--  Catppuccin / Kvantum
-    - URL: https://github.com/catppuccin/Kvantum
-    
+- Graphite-gtk-theme  
+  - URL:  https://github.com/vinceliuice/Graphite-gtk-theme
+- Tela-circle-icon-theme
+  - URL:  https://github.com/vinceliuice/Tela-circle-icon-theme
+- Wallpapers
+  - URL:  https://github.com/vinceliuice/Graphite-gtk-theme/tree/main/wallpaper
+  - URL:  https://sites.google.com/view/oemfiles
+  - URL:  https://drive.google.com/drive/u/0/folders/19SgrEjfc4LgqV-pdm0SspTjuRziWPr2w
 - eww configuration docs
   - URL: https://elkowar.github.io/eww/configuration.html
