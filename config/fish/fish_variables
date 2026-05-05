@@ -1,0 +1,5 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export EDITOR:helix
+SETUVAR __fish_initialized:4300
+SETUVAR fish_user_paths:/home/dr/\x2ecargo/bin\x1e/home/dr/\x2elocal/bin

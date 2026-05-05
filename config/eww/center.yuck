@@ -1,0 +1,33 @@
+;; --- Detailed Date Variables ---
+(defpoll day_name :interval "1h" "date '+%A'")
+(defpoll date_full :interval "1h" "date '+%B %d %Y'")
+
+;; Note: We subtract 1 from the month for eww's 0-indexed calendar
+(defpoll current_day :interval "1h" "date '+%d'")
+(defpoll current_month :interval "1h" :initial "0" "echo $(( $(date +%m) - 1 ))")
+(defpoll current_year :interval "1h" :initial "2026" "date '+%Y'")
+
+(defwidget popup-center []
+  (box :class "calendar-window-box" :orientation "v" :space-evenly false
+    ;; The GNOME Header Section
+    (box :class "calendar-header" :orientation "v" :space-evenly false :halign "start"
+      (label :class "header-day" :text day_name :halign "start")
+      (label :class "header-date" :text date_full :halign "start"))
+    
+    (box :class "calendar-widget-container"  :halign "center" :valign "center"
+      (calendar :class "gnome-calendar"
+                :month current_month
+                :year current_year
+                :show-heading false
+                :show-week-numbers true))))
+
+(defwindow center
+  :monitor 0
+  :stacking "fg"
+  :windowtype "normal"
+  :wm-ignore true
+  :geometry (geometry :x "0px" 
+                      :y "10px" 
+                      :width "350px"
+                      :anchor "top center")
+  (popup-center))

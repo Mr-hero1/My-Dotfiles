@@ -1,0 +1,283 @@
+@import "/home/dr/.config/theme.scss";
+
+/* =========================================
+   BASE & RESET
+   ========================================= */
+* {
+  all: unset;
+  font-family: "Material Design Icons", "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.bar {
+  background-color: $bg-base;
+  color: $text-main;
+  border-bottom: 2px solid $border-med;
+}
+
+.music-button {
+    color: $text-muted;
+}
+
+/* Shared Container Styles (Combines left, center, right boxes) */
+.calendar-window-box,
+.control-center {
+  background-color: $bg-surface;
+  color: $text-main;
+  border-radius: $radius-lg;
+  border: 1px solid $border-thin;
+}
+
+.calendar-window-box, .control-center { padding: 24px; }
+
+.toggle-arrow {
+    font-size: 28px;
+}
+
+/* =========================================
+   GLOBAL BUTTONS & ICONS
+   ========================================= */
+button, .left-side, .center-side, .right-side {
+  padding: 1.5px 10px;
+  transition: $anim-fast;
+}
+
+button:hover {
+  background-color: $bg-hover;
+  color: $text-inverted;
+  border-radius: 9px;
+  transition: $anim-smooth;
+}
+
+.panel-button label{
+  font-size: 19px;
+  font-weight: normal;
+  margin-right: -2px;
+}
+
+.action-icons label{
+  font-size: 20px;
+  padding: 2px;
+  font-weight: normal;
+}
+
+.action-icons:hover {
+  background-color: $bg-hover;
+  color: $text-inverted;
+  border-radius: 0;
+}
+
+.workspace {
+  color: $accent;
+  border-radius: 9px;
+  padding: 0px 10px;
+  margin-right: 10px;
+}
+
+/* =========================================
+   CALENDAR (center)
+   ========================================= */
+.header-day {
+  color: $text-muted; 
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.header-date {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.calendar-header {
+  margin-bottom: 14px;
+}
+
+calendar {
+  background-color: transparent;
+  padding: 5px 1px;
+  
+  &.highlight {
+    color: $border-med; 
+    font-weight: bold;
+  }
+
+  &:selected {
+    color: $accent;
+    border-radius: 5px;
+  }
+
+  &:indeterminate {
+    color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* =========================================
+   CONTROL CENTER (Right)
+   ========================================= */
+.header-row {
+  margin-bottom: 15px;
+  
+  .battery-pill {
+    padding: 4px 12px;
+    background: $bg-transparent-light;
+    border-radius: $radius-pill;
+  }
+}
+
+.toggles-grid {
+  margin-top: 20px;
+}
+
+.toggle-btn, .toggle-btn-simple {
+  background-color: $bg-transparent-light;
+  padding: 12px;
+  border-radius: 15px; 
+  transition: $anim-smooth;
+  
+  &.active {
+    background-color: $bg-active;
+  }
+
+  &:hover {
+    background-color: $bg-hover;
+    color: $text-inverted;
+    border-radius: $radius-pill;
+  }
+
+  .toggle-sub {
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0.7;
+    color: inherit;
+  }
+}
+
+/* Sliders - GTK specific styling */
+scale highlight {
+  background-color: $bg-hover;
+  border-radius: 10px;
+}
+
+scale trough {
+  background-color: $border-med;
+  border-radius: 10px;
+  min-height: 12px;
+  min-width: 50px;
+}
+
+.slider-icon, .toggle-icon {
+  font-size: 25px;
+}
+
+.slider-icon {
+  margin-right: 10px;
+}
+
+/* Power Menu */
+.menu-container {
+    background-color: $bg-surface-alt;
+    border-radius: $radius-md;
+    padding: 12px;
+    margin-bottom: 5px;
+}
+
+.menu-header {
+    padding-bottom: 12px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid $border-med; 
+}
+
+.menu-icon {
+    font-size: 25px;
+    background-color: $border-med;
+    padding: 8px 8px;
+    border-radius: 8px;
+}
+
+.menu-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.menu-btn {
+    padding: 10px;
+    border-radius: $radius-sm;
+    font-size: 14px;
+    color: #e0e0e0;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+        background-color: $border-med;
+        color: #fff;
+    }
+}
+
+/* =========================================
+   DOCK (Bottom)
+   ========================================= */
+
+.dock-container {
+  margin-bottom: 2px;
+}
+
+.dock-box {
+  background-color: $bg-surface;
+  border: 1px solid $border-med;
+  border-radius: $radius-lg;
+  padding: 10px 20px;
+  margin-bottom: 12px;
+}
+
+
+.album-art {
+  border-radius: $radius-md;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid $border-thin;
+  
+  .play-overlay {
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+
+  &:hover, &:focus  {
+    background-color: transparent; 
+    border: 2px solid $text-main;
+  }
+}
+
+.music-info {
+  .song-title {
+    font-size: 17px;
+    font-weight: 900;
+    color: $text-main;
+  }
+
+  .song-artist {
+    font-size: 15px;
+    font-weight: 500;
+    color: $text-muted;
+    margin-bottom: 5px;
+  }
+}
+
+.music-bar-container {
+  scale {
+    trough {
+      min-height: 8px; 
+      background-color: $bg-transparent-light;
+    }
+    highlight {
+      background-color: $text-main; /* Music bar matches accent color */
+    }
+  }
+}
+
+.trigger-line {
+  background-color: transparent;
+}
+

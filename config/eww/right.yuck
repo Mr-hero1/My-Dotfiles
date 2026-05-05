@@ -1,0 +1,129 @@
+;; --- Variables & Polls ---
+(defpoll bluetooth_status :interval "3s" "~/.config/eww/modules/bluetooth.sh")
+
+(deflisten battery_status :initial "󰁺 0" "~/.config/eww/modules/battery.sh")
+(deflisten wifi_status    :initial "󰪎 OFF"  "~/.config/eww/modules/wifi.sh")
+(deflisten volume_status  :initial "0"  "~/.config/eww/modules/volume.sh")
+(deflisten backlight_status :initial "0"  "~/.config/eww/modules/backlight.sh")
+(defpoll timer_status :interval "1s" "~/.config/eww/modules/timer.sh")
+
+;; State for Revealers
+(defvar show_power false)
+(defvar show_timer false)
+
+;; --- Widgets ---
+
+(defwidget popup-right []
+    (box :class "control-center" :orientation "v" :space-evenly false :spacing 0
+      
+      (box :class "header-row" :orientation "h" :space-evenly false
+        (box :class "battery-pill" :space-evenly false :spacing 5
+          (label :text "󰁹") ; Icon
+          (label :text "${battery_status}%"))
+        (box :hexpand true) ;; Spacer
+        (box :class "action-icons" :spacing 2
+          (button :onclick "eww close right && niri msg action screenshot" "󰋲")
+          (button :onclick "eww close right && nirimod &" "󰢻")
+          (button :onclick "hyprlock &" "󰍁")
+          (button :onclick "eww update show_timer=false show_power=${!show_power}" "󰐥")))
+      
+        (revealer :transition "slidedown" 
+                  :reveal show_power 
+                  :duration "250ms"
+          (box :class "menu-container" :orientation "v" :space-evenly false :spacing 5
+            (box :class "menu-header" :orientation "h" :space-evenly false :spacing 10
+              (label :class "menu-icon" :text "󰐥")
+              (label :class "menu-title" :text "Power Off")
+            )
+            (box :orientation "v" :class "power-box" :hexpand true :space-evenly false
+              (button :class "menu-btn" :halign "fill" :onclick "systemctl suspend" 
+                (label :text "Suspend" :halign "start"))
+              (button :class "menu-btn" :halign "fill" :onclick "systemctl reboot" 
+                (label :text "Restart..." :halign "start"))
+              (button :class "menu-btn" :halign "fill" :onclick "systemctl poweroff" 
+                (label :text "Power Off..." :halign "start"))
+              (button :class "menu-btn" :halign "fill" :onclick "niri msg action quit" 
+                (label :text "Log Out" :halign "start")))))
+      
+
+      (box :class "slider-section" :orientation "v" :spacing 15
+        (box :orientation "h" :space-evenly false :spacing 5
+          (label :text "󰃠" :class "slider-icon")
+          (scale :value backlight_status :hexpand true :min 0 :max 101 :onchange "brightnessctl set {}%"))
+        (box :orientation "h" :space-evenly false :spacing 5
+          (label :text "󰕾" :class "slider-icon")
+          (scale :value volume_status :hexpand true :min 0 :max 101 :onchange "pamixer --set-volume {}")))
+
+      (box :class "toggles-grid" :orientation "v" :spacing 10 :space-evenly false
+        
+        (box :orientation "h" :spacing 10 :space-evenly true
+          (quick-toggle :label "Wi-Fi" :value wifi_status :icon "󰖩" 
+                        :onclick "foot --title='otl' -o colors.regular4=000000 -e sh -c 'sleep 0.1; nmtui-connect' & eww close right"
+                        :onrightclick "nmcli radio wifi | grep -q 'enabled' && nmcli radio wifi off || nmcli radio wifi on"
+                        :revealed false
+                        :show_arrow false)
+
+          (quick-toggle :label "Bluetooth" :value bluetooth_status :icon "󰂯" 
+                        :onclick "overskride & eww close right"
+                        :onrightclick "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on"
+                        :revealed false
+                        :show_arrow false))
+                        
+        (box :orientation "h" :spacing 10 :space-evenly true
+          (quick-toggle :label "Timer" :value timer_status :icon "󰔟" 
+                        :onclick "eww update show_power=false show_timer=${!show_timer}"
+                        :onrightclick ""
+                        :revealed show_timer
+                        :show_arrow true)
+                        
+          (quick-toggle :label "Notes" :value "App" :icon "󰎞" 
+                        :onclick "foot helix ~/Notes/ & eww close right"
+                        :onrightclick ""
+                        :revealed false
+                        :show_arrow false))
+                        
+        ;; --- REVEALER: Timer Menu ---
+        (revealer :transition "slidedown" 
+                  :reveal show_timer 
+                  :duration "250ms"
+          (box :class "menu-container" :orientation "v" :space-evenly false :spacing 5
+            (box :class "menu-header" :orientation "h" :space-evenly false :spacing 10
+              (label :class "menu-icon" :text "󰔟")
+              (label :class "menu-title" :text "Set Timer")
+            )
+            (box :orientation "v" :class "power-box" :hexpand true :space-evenly false
+              (button :class "menu-btn" :halign "fill" :onclick "~/.config/eww/modules/timer.sh set 1800 & eww update show_timer=false" 
+                (label :text "30 Minutes" :halign "start"))
+              (button :class "menu-btn" :halign "fill" :onclick "~/.config/eww/modules/timer.sh set 3600 & eww update show_timer=false" 
+                (label :text "1 Hour" :halign "start"))
+              (button :class "menu-btn" :halign "fill" :onclick "~/.config/eww/modules/timer.sh set 7200 & eww update show_timer=false" 
+                (label :text "2 Hours" :halign "start")))))
+      )
+    )
+)
+
+;; Helper widget for the "Pill" buttons 
+(defwidget quick-toggle [label value icon onclick onrightclick revealed show_arrow]
+  (button :class "toggle-btn" :onclick onclick :onrightclick onrightclick 
+    (box :orientation "h" :space-evenly false :spacing 10
+      (label :class "toggle-icon" :text icon)
+      (box :orientation "v" :valign "center" :halign "start"
+        (label :class "toggle-label" :text label :halign "start")
+        (label :class "toggle-sub" :text value :halign "start" :limit-width 10))
+      (box :hexpand true)
+      ;; Only show the arrow if show_arrow is true
+      (label :text {show_arrow ? (revealed ? "󰅀" : "󰅂") : ""} 
+             :class "toggle-arrow"))))
+            
+;; --- Window ---
+
+(defwindow right
+  :monitor 0
+  :stacking "fg"
+  :windowtype "normal"
+  :wm-ignore true
+  :geometry (geometry :x "10px" 
+                      :y "10px" 
+                      :width "395px"
+                      :anchor "top right")
+  (popup-right))

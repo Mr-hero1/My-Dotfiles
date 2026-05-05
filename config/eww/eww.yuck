@@ -1,0 +1,37 @@
+(defpoll time :interval "10s" "date '+%b %d  %H:%M'")
+(defpoll kay :interval "2s" "~/.config/eww/modules/kay.sh")
+(deflisten info "~/.config/eww/modules/info.sh")
+(deflisten space :initial "I" "~/.config/eww/modules/workspaces.sh")
+(deflisten window :initial "" "~/.config/eww/modules/window.sh")
+
+(defwidget bar_layout []
+  (centerbox :orientation "h"
+    (left_stuff)
+    (center_stuff)
+    (right_stuff)))
+
+(defwidget left_stuff []
+    (box :class "left-side" :halign "start"  :space-evenly false :valign "center" :spacing 0
+    (label :class "workspace" :text space)
+    (label :class "music-button" :text window :limit-width 35)))
+
+(defwidget center_stuff []
+    (box :class "center-side" :halign "center"  :space-evenly false :valign "center"
+    (button :onclick "eww open center --toggle" time)))
+          
+(defwidget right_stuff []
+  (box :class "right-side" :halign "end" :valign "center" :spacing 10 :space-evenly false
+    (label :text kay)
+    (button :class "panel-button" :onclick "eww open right --toggle && eww update show_power=false show_timer=false" info)))
+
+
+(defwindow bar
+  :monitor 0
+  :stacking "fg"
+  :exclusive true
+  :geometry (geometry :x "0px" :y "0px" :width "1600px" :height "0%" :anchor "center top")
+    (bar_layout))
+
+(include "./right.yuck")
+(include "./center.yuck")
+(include "./dock.yuck")

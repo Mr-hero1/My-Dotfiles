@@ -1,0 +1,33 @@
+# --- Global Settings ---
+on-button-left=dismiss
+on-button-middle=none
+on-button-right=invoke-default-action
+
+# GNOME-style placement (Top Center with a slight gap)
+anchor=top-center
+margin=19,0,0,0
+
+# GNOME-style dimensions
+width=320
+height=110
+padding=15
+border-size=2
+border-radius=12
+text-alignment=center
+
+font=Material Design Icons 14
+max-visible=2
+default-timeout=3100
+
+background-color=#000000
+text-color=#ffffff
+border-color=#161616
+progress-color=#5e355e
+
+[urgency=high]
+border-color=#ff0000
+default-timeout=0
+
+[app-name=sys]
+width=150
+padding=10
