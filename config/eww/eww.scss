@@ -1,5 +1,4 @@
-@import "/home/dr/.config/theme.scss";
-
+@import "~/.config/theme.scss";
 /* =========================================
    BASE & RESET
    ========================================= */
@@ -10,10 +9,11 @@
   font-size: 16px;
 }
 
-.bar {
+.bar1 {
   background-color: $bg-base;
   color: $text-main;
-  border-bottom: 2px solid $border-med;
+  border: 2px solid $border-med;
+  border-radius: $radius-md;
 }
 
 .music-button {
@@ -22,7 +22,8 @@
 
 /* Shared Container Styles (Combines left, center, right boxes) */
 .calendar-window-box,
-.control-center {
+.control-center,
+.dock-box {
   background-color: $bg-surface;
   color: $text-main;
   border-radius: $radius-lg;
@@ -219,16 +220,8 @@ scale trough {
    DOCK (Bottom)
    ========================================= */
 
-.dock-container {
-  margin-bottom: 2px;
-}
-
 .dock-box {
-  background-color: $bg-surface;
-  border: 1px solid $border-med;
-  border-radius: $radius-lg;
-  padding: 10px 20px;
-  margin-bottom: 12px;
+  padding: 12px;
 }
 
 
@@ -280,4 +273,6 @@ scale trough {
 .trigger-line {
   background-color: transparent;
 }
+
+
 
