@@ -1,0 +1,35 @@
+/* =========================================
+   THEME VARIABLES (SCSS format for Eww/GTK3)
+   Change these here and Eww will compile them!
+   ========================================= */
+$bg-base: #101010;
+$bg-surface: #0a0a0a;
+$bg-surface-alt: #161616;
+$bg-hover: #ffffff;
+$bg-active: #5e355e;
+
+$accent: #ff0000;
+
+/* Transparent Overlays */
+$bg-transparent-light: #1a1a1a;
+
+/* Text Colors */
+$text-main: #ffffff;
+$text-inverted: #000000;
+$text-muted: #666666;
+
+/* Borders */
+$border-thin: #999999;
+$border-med: #4D4D4D;
+
+/* Border Radii */
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-pill: 99px;
+
+/* Animations */
+$anim-smooth: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+$anim-fast: 200ms ease;
+
+
