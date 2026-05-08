@@ -1,4 +1,5 @@
-@import "~/.config/theme.scss";
+@import "/home/dr/.config/theme.scss";
+
 /* =========================================
    BASE & RESET
    ========================================= */
@@ -7,27 +8,20 @@
   font-family: "Material Design Icons", "Inter", sans-serif;
   font-weight: 900;
   font-size: 16px;
+  background-color: null; 
 }
 
 .bar1 {
   background-color: $bg-base;
   color: $text-main;
-  border: 2px solid $border-med;
-  border-radius: $radius-md;
 }
 
-.music-button {
-    color: $text-muted;
-}
-
-/* Shared Container Styles (Combines left, center, right boxes) */
 .calendar-window-box,
 .control-center,
 .dock-box {
-  background-color: $bg-surface;
+  background-color: $bg-base;
   color: $text-main;
   border-radius: $radius-lg;
-  border: 1px solid $border-med;
 }
 
 .calendar-window-box, .control-center { padding: 24px; }
@@ -76,6 +70,10 @@ button:hover {
   margin-right: 10px;
 }
 
+.textoff {
+  color: $text-muted;
+}
+
 /* =========================================
    CALENDAR (center)
    ========================================= */
@@ -97,7 +95,7 @@ button:hover {
 }
 
 calendar {
-  background-color: transparent;
+  background-color: null;
   padding: 5px 1px;
   
   &.highlight {
@@ -238,7 +236,7 @@ scale trough {
   }
 
   &:hover, &:focus  {
-    background-color: transparent; 
+    background-color: null; 
     border: 2px solid $text-main;
   }
 }
@@ -265,7 +263,7 @@ scale trough {
       background-color: $bg-transparent-light;
     }
     highlight {
-      background-color: $text-main; /* Music bar matches accent color */
+      background-color: $text-main; 
     }
   }
 }
@@ -273,6 +271,4 @@ scale trough {
 .trigger-line {
   background-color: transparent;
 }
-
-
 
