@@ -25,7 +25,7 @@ border-color=#161616
 progress-color=#5e355e
 
 [urgency=high]
-border-color=#ff0000
+border-color=#096192
 default-timeout=0
 
 [app-name=sys]
