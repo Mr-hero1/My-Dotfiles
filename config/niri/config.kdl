@@ -1,7 +1,9 @@
 output "eDP-1" { 
     scale 1.2
 }
-input {    focus-follows-mouse max-scroll-amount="33%"
+
+input {
+    focus-follows-mouse max-scroll-amount="33%"
     keyboard {
         xkb {
             layout "gb,ara,ir"
@@ -29,10 +31,8 @@ layout {
 
     default-column-width { proportion 0.5; }
     focus-ring {
-        width 2
-
+        width 1
         active-color "#666666"
-        inactive-color "#505050"
     }
 
     border {
@@ -63,9 +63,24 @@ window-rule {
 }
 
 window-rule {
+    match app-id="foot"
+    background-effect {
+        blur true
+    }    
+}
+
+window-rule {
     match app-id="eu.soliprem.thumbpick"
     open-floating true
     open-focused true
+}
+
+layer-rule {
+    match namespace="gtk-layer-shell"
+    geometry-corner-radius 20
+    background-effect {
+        blur true
+    }
 }
 
 overview {
@@ -262,6 +277,9 @@ binds {
 cursor {
     xcursor-theme "GoogleDot-Black"    
     xcursor-size 28
+
+    hide-when-typing
+    hide-after-inactive-ms 1000
 }
 
 prefer-no-csd
