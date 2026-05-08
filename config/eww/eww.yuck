@@ -29,7 +29,7 @@
   :monitor 0
   :stacking "fg"
   :exclusive true
-  :geometry (geometry :x "0px" :y "5px" :width "1550px" :height "0%" :anchor "center top")
+  :geometry (geometry :x "0px" :y "0px" :width "1600px" :height "0%" :anchor "center top")
     (bar_layout))
 
 (include "./right.yuck")
