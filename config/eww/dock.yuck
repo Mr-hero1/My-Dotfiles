@@ -47,5 +47,5 @@
   :stacking "fg"
   :windowtype "dock"
   :wm-ignore false
-  :geometry (geometry :x "0%" :y "0px" :width "60%" :height "120px" :anchor "bottom center")
+  :geometry (geometry :x "0%" :y "25px" :width "0%" :height "0px" :anchor "bottom center")
   (dock_layout))
