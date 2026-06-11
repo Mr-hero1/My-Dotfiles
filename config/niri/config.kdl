@@ -1,9 +1,10 @@
-output "eDP-1" { 
-    scale 1.2
+output "eDP-1" {
+ 
+    scale 1.2    
 }
 
 input {
-    focus-follows-mouse max-scroll-amount="33%"
+
     keyboard {
         xkb {
             layout "gb,ara,ir"
@@ -17,11 +18,15 @@ input {
         tap
         accel-profile "flat"
     }
-    mouse
+    mouse {
+
+        accel-profile "adaptive"
+    }
 }
 
 layout {
-    gaps 11
+    gaps 28
+    background-color "transparent"
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -29,10 +34,10 @@ layout {
         proportion 0.66667
     }
 
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.42; }
     focus-ring {
-        width 1
-        active-color "#666666"
+        width 8
+        active-color "#1a1a1a99"
     }
 
     border {
@@ -42,31 +47,41 @@ layout {
     shadow {
         off
     }
+
+    struts 
 }
 
-spawn-at-startup "eww" "open" "bar"
 spawn-at-startup "awww-daemon"
-spawn-at-startup "awww" "restore"
+spawn-at-startup "eww" "open" "bar" 
 spawn-at-startup "mako"
+spawn-at-startup "foot"
 
 hotkey-overlay {
     skip-at-startup
 }
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-animations {
+animations 
+
+
+blur {
+    //off
+    passes 5
+    offset 3
+    noise 0.03
+    saturation 0.9
 }
 
 window-rule {
-    geometry-corner-radius 10
+    geometry-corner-radius 20
     clip-to-geometry true
 }
 
 window-rule {
     match app-id="foot"
     background-effect {
-        blur true
-    }    
+    blur true
+    }
 }
 
 window-rule {
@@ -77,15 +92,31 @@ window-rule {
 
 layer-rule {
     match namespace="gtk-layer-shell"
-    geometry-corner-radius 20
-    background-effect {
+        geometry-corner-radius 20
+        background-effect {
+        blur true
+    }
+}
+
+layer-rule {
+    match namespace="my-control"
+        geometry-corner-radius 21
+        background-effect {
         blur true
     }
 }
 
 overview {
-        zoom 0.9
-        backdrop-color "#121212"
+        zoom 0.7
+       // backdrop-color "#1a1a1a"
+    workspace-shadow {
+        off
+    }
+}
+
+layer-rule {
+    match namespace="awww"
+    place-within-backdrop true
 }
 
 binds {
@@ -95,11 +126,10 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "foot"; }
     Mod+E hotkey-overlay-title="Files: file" { spawn "thunar" "-w"; }
     Mod+A hotkey-overlay-title="Run an Application: togi" { spawn "tofi-drun"; }
-    Mod+Space { spawn "sh" "-c" "eww open right --toggle && eww update show_power=false active_menu=0"; }
-    Mod+M hotkey-overlay-title="Run an Application: fuzzel" { spawn "eww" "open" "dock" "--toggle"; }
-    Mod+B hotkey-overlay-title="Open a Browser: helium" { spawn "helium-browser"; }
-    Mod+N hotkey-overlay-title="Run an Application: fuzzel" { spawn "foot" "helix" "~/Notes/"; }
-    Mod+V hotkey-overlay-title="Run an Application: fuzzel" { spawn "eww" "open" "center" "--toggle"; }
+    Mod+Space { spawn "sh" "-c" "eww  open-many date bar --toggle"; }
+    Mod+B { spawn "helium-browser"; }
+    Mod+N { spawn "foot" "helix" "~/Notes/"; }
+    Mod+V { spawn-sh "eww open control --toggle && eww update show_timer=false show_power=false"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
@@ -283,3 +313,5 @@ cursor {
 }
 
 prefer-no-csd
+
+environment
