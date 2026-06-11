@@ -1,5 +1,6 @@
 # 🐧 [NIRI Rice]
 Personal dotfiles for Niri configuration.
+note you may need to config the scrpts/eww for the widgets to work good luck ;)
 
 ## 📸 Screenshots
 <p align="center">
@@ -25,9 +26,5 @@ Personal dotfiles for Niri configuration.
   - URL:  https://github.com/vinceliuice/Graphite-gtk-theme
 - Tela-circle-icon-theme
   - URL:  https://github.com/vinceliuice/Tela-circle-icon-theme
-- Wallpapers
-  - URL:  https://github.com/vinceliuice/Graphite-gtk-theme/tree/main/wallpaper
-  - URL:  https://sites.google.com/view/oemfiles
-  - URL:  https://drive.google.com/drive/u/0/folders/19SgrEjfc4LgqV-pdm0SspTjuRziWPr2w
 - eww configuration docs
   - URL: https://elkowar.github.io/eww/configuration.html
