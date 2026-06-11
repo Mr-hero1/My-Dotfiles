@@ -1,0 +1,14 @@
+(defwidget line_layout []
+(box
+  (eventbox :onhover "eww open bar")
+  (eventbox)
+  (eventbox)
+  (eventbox)
+)
+)
+(defwindow line
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry :x "0px" :y "0px" :width "0px" :height "100%" :anchor "right center")
+    (line_layout))
+

@@ -2,53 +2,58 @@
 
 last_out=""
 
+# Find Wi-Fi interface ONCE outside the loop. 
+# It rarely changes, so checking it every 0.8s wastes CPU.
+WIFI_INT=""
+for dir in /sys/class/net/w*; do
+    if [ -d "$dir" ]; then
+        WIFI_INT=${dir##*/}
+        break
+    fi
+done
+
 while true; do
     # --- BATTERY LOGIC ---
-    PERCENT=$(cat "/sys/class/power_supply/BAT0/capacity" 2>/dev/null)
-    STATUS=$(cat "/sys/class/power_supply/BAT0/status" 2>/dev/null)
-
-    if [ "$STATUS" = "Charging" ]; then
-        bat_icon="󰂄"
-    else
-        if [ "$PERCENT" -ge 90 ]; then bat_icon="󰁹"
+    # Using bash's built-in 'read' is much faster than launching 'cat'
+    if read -r STATUS < "/sys/class/power_supply/BAT0/status" 2>/dev/null && \
+       read -r PERCENT < "/sys/class/power_supply/BAT0/capacity" 2>/dev/null; then
+       
+        if [ "$STATUS" = "Charging" ]; then
+            bat_icon="󰂄"
+        elif [ "$PERCENT" -ge 90 ]; then bat_icon="󰁹"
         elif [ "$PERCENT" -ge 80 ]; then bat_icon="󰂂"
         elif [ "$PERCENT" -ge 70 ]; then bat_icon="󰂁"
         elif [ "$PERCENT" -ge 60 ]; then bat_icon="󰂀"
         elif [ "$PERCENT" -ge 50 ]; then bat_icon="󰁾"
         elif [ "$PERCENT" -ge 40 ]; then bat_icon="󰁽"
         elif [ "$PERCENT" -ge 20 ]; then bat_icon="󰁼"
-        elif [ "$PERCENT" -ge 10 ]; then bat_icon="󰁺"
-        else bat_icon="󰁺"; fi
+        else bat_icon="󰁺"
+        fi
+    else
+        bat_icon="󰁺"
     fi
 
-    # --- VOLUME LOGIC (Show only if muted) ---
-    if [ "$(pamixer --get-mute)" = "true" ]; then
-        vol_out="󰖁 "
-    else
-        vol_out=""
-    fi
+    # --- VOLUME & MIC LOGIC ---
+    # pamixer is an external binary, so we keep this concise
+    vol_out=""
+    mic_out=""
+    [ "$(pamixer --get-mute 2>/dev/null)" = "true" ] && vol_out="󰖁 "
+    [ "$(pamixer --source 0 --get-mute 2>/dev/null)" = "true" ] && mic_out="󰍭 "
 
-    # --- MIC LOGIC (Show icon only if muted) ---
-    if [ "$(pamixer --source 0 --get-mute)" = "true" ]; then
-        mic_out="󰍭 "
-    else
-        mic_out=""
-    fi
-
-    # --- BLUETOOTH LOGIC (Direct Kernel Check) ---
-    if ls /sys/class/bluetooth/ 2>/dev/null | grep -q ":"; then
-        bt_out="󰂱 "
-    else
-        bt_out=""
-    fi
+    # --- BLUETOOTH LOGIC ---
+    # Pure bash globbing. No 'ls' or 'grep' needed!
+    bt_out=""
+    for bt in /sys/class/bluetooth/*:*/; do
+        if [ -d "$bt" ]; then
+            bt_out="󰂱 "
+            break
+        fi
+    done
 
     # --- WI-FI ---
-    WIFI_INT=$(ls /sys/class/net | grep '^w' | head -n 1)
-    
-    if [ -n "$WIFI_INT" ] && [ "$(cat /sys/class/net/$WIFI_INT/operstate 2>/dev/null)" = "up" ]; then
-        wifi_out="󰖩 "
-    else
-        wifi_out=""
+    wifi_out=""
+    if [ -n "$WIFI_INT" ]; read -r WIFI_STATE < "/sys/class/net/$WIFI_INT/operstate" 2>/dev/null; then
+        [ "$WIFI_STATE" = "up" ] && wifi_out="󰖩 "
     fi
 
     # --- FINAL OUTPUT ---
@@ -59,5 +64,5 @@ while true; do
         last_out="$current_out"
     fi
 
-    sleep 0.5
+    sleep 0.9
 done

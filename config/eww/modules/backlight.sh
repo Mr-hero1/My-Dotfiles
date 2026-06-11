@@ -1,20 +1,13 @@
 #!/bin/bash
-LAST_PERCENT=""
 
-while true; do
-    # Get raw data from brightnessctl
-    RAW=$(brightnessctl -m)
+FILE="/sys/class/backlight/intel_backlight/brightness"
 
-    # Parse the comma-separated string to get the percentage
-    IFS=',' read -r _ _ _ PERCENT_STR _ <<< "$RAW"
-    PERCENT="${PERCENT_STR%\%}"
+print_brightness() {
+    cat "$FILE"
+}
 
-    # Only output if the value has changed
-    if [ "$PERCENT" != "$LAST_PERCENT" ]; then
-        echo "$PERCENT"
-        LAST_PERCENT="$PERCENT"
-    fi
+print_brightness
 
-    # Check every 0.2 seconds
-    sleep 0.2
+inotifywait -mq -e modify "$FILE" | while read -r events; do
+    print_brightness
 done

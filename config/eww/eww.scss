@@ -1,60 +1,65 @@
-@import "~/.config/theme.scss";
+@import "/home/dr/.config/theme.scss";
 
-/* =========================================
-   BASE & RESET
-   ========================================= */
 * {
   all: unset;
   font-family: "Material Design Icons", "Inter", sans-serif;
   font-weight: 900;
-  font-size: 16px;
-  background-color: null; 
+  background: none;
+  border-radius: 0px;
+}
+
+.wallpaper-box {
+    background-size: cover;          
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .bar1 {
   background-color: $bg-base;
   color: $text-main;
-}
-
-.calendar-window-box,
-.control-center,
-.dock-box {
-  background-color: $bg-base;
-  color: $text-main;
+  font-size: 16px;
+  border: 8px solid $bg-transparent-light;
   border-radius: $radius-lg;
 }
 
-.calendar-window-box, .control-center { padding: 24px; }
-
-.toggle-arrow {
-    font-size: 28px;
+.main-container {
+  background-color: $bg-base;
+  color: $text-main;
+  border-radius: $radius-lg;
+  padding: 9px 12px 5px 12px;
+  border: 8px solid $bg-transparent-light;
 }
 
-/* =========================================
-   GLOBAL BUTTONS & ICONS
-   ========================================= */
-button, .left-side, .center-side, .right-side {
-  padding: 1.5px 10px;
+.music-container {
+  background-color: $bg-transparent-light;
+  color: $text-main;
+  border-radius: $radius-lg;
+  padding: 7px 15px 7px 5px;
+  margin-bottom: 15px;
+}
+
+.toggle-arrow {
+  font-size: 26px;
+}
+
+button{
   transition: $anim-fast;
 }
 
 button:hover {
   background-color: $bg-hover;
   color: $text-inverted;
-  border-radius: 9px;
+  border-radius: 99px;
   transition: $anim-smooth;
 }
 
-.panel-button label{
-  font-size: 19px;
-  font-weight: normal;
-  margin-right: -2px;
+.panel-icon {
+  font-size: 18px;
 }
 
-.action-icons label{
-  font-size: 20px;
-  padding: 2px;
-  font-weight: normal;
+.action-icons label {
+  font-size: 18px;
+  padding: 9px;
 }
 
 .action-icons:hover {
@@ -63,64 +68,36 @@ button:hover {
   border-radius: 0;
 }
 
-.workspace {
-  color: $accent;
-  border-radius: 9px;
-  padding: 0px 10px;
-  margin-right: 10px;
+.panel-button {
+  margin-right: 0px;
+  border-radius: 99px;
+  padding: 0px 11px;
+}
+
+.space {
+  font-size: 24px;
+  border-radius:19px;
+  margin-right: 6px;
+  margin-left: 0px;
+  padding-right: 4px;
+  padding-left: 15px;
+}
+
+.text {
+  font-size: 21px;
 }
 
 .textoff {
   color: $text-muted;
+  padding: 0px 5px;
+  font-size: 18px;
 }
 
-/* =========================================
-   CALENDAR (center)
-   ========================================= */
-.header-day {
-  color: $text-muted; 
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.header-date {
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 800;
-  margin-top: 10px;
-}
-
-.calendar-header {
-  margin-bottom: 14px;
-}
-
-calendar {
-  background-color: null;
-  padding: 5px 1px;
-  
-  &.highlight {
-    color: $border-med; 
-    font-weight: bold;
-  }
-
-  &:selected {
-    color: $accent;
-    border-radius: 5px;
-  }
-
-  &:indeterminate {
-    color: rgba(255, 255, 255, 0.2);
-  }
-}
-
-/* =========================================
-   CONTROL CENTER (Right)
-   ========================================= */
 .header-row {
   margin-bottom: 15px;
   
   .battery-pill {
-    padding: 4px 12px;
+    padding: 5px 12px;
     background: $bg-transparent-light;
     border-radius: $radius-pill;
   }
@@ -130,9 +107,10 @@ calendar {
   margin-top: 20px;
 }
 
-.toggle-btn, .toggle-btn-simple {
+.toggle-btn, 
+.toggle-btn-simple {
   background-color: $bg-transparent-light;
-  padding: 12px;
+  padding: 13px;
   border-radius: 15px; 
   transition: $anim-smooth;
   
@@ -149,95 +127,89 @@ calendar {
   .toggle-sub {
     font-size: 12px;
     font-weight: 700;
-    opacity: 0.7;
     color: inherit;
   }
 }
 
-/* Sliders - GTK specific styling */
 scale highlight {
   background-color: $bg-hover;
-  border-radius: 10px;
+  border-radius: 0px 12px 12px 0px;
 }
 
 scale trough {
   background-color: $border-med;
-  border-radius: 10px;
-  min-height: 12px;
+  border-radius: 0px 12px 12px 0px;
+  min-height: 37px;
   min-width: 50px;
 }
 
-.slider-icon, .toggle-icon {
-  font-size: 25px;
+.toggle-icon {
+  font-size: 26px;
+  margin-right: 8px;  
 }
 
 .slider-icon {
-  margin-right: 10px;
+  font-size: 25px;
+  color: $bg-base;
+  padding: 2px 10px 0px 10px;
+  background-color: $bg-hover;
+  border-radius: 12px 0px 0px 12px;
 }
 
-/* Power Menu */
 .menu-container {
-    background-color: $bg-surface-alt;
-    border-radius: $radius-md;
-    padding: 12px;
-    margin-bottom: 5px;
+  background-color: $bg-surface-alt;
+  border-radius: $radius-md;
+  padding: 12px;
+  margin-bottom: 20px;
+  margin-top: 5px;
 }
 
 .menu-header {
-    padding-bottom: 12px;
-    margin-bottom: 5px;
-    border-bottom: 1px solid $border-med; 
+  padding-bottom: 12px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid $border-med; 
 }
 
 .menu-icon {
-    font-size: 25px;
-    background-color: $border-med;
-    padding: 8px 8px;
-    border-radius: 8px;
+  font-size: 25px;
+  background-color: $border-med;
+  padding: 8px 8px;
+  border-radius: 8px;
 }
 
 .menu-title {
-    font-size: 16px;
-    font-weight: bold;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .menu-btn {
-    padding: 10px;
-    border-radius: $radius-sm;
-    font-size: 14px;
-    color: #e0e0e0;
-    transition: background-color 0.2s ease;
-    
-    &:hover {
-        background-color: $border-med;
-        color: #fff;
-    }
+  padding: 10px;
+  border-radius: $radius-sm;
+  font-size: 14px;
+  color: #e0e0e0;
+  transition: background-color 0.1s ease;
+  
+  &:hover {
+    background-color: $border-med;
+    color: #fff;
+  }
 }
-
-/* =========================================
-   DOCK (Bottom)
-   ========================================= */
-
-.dock-box {
-  padding: 12px;
-}
-
 
 .album-art {
-  border-radius: $radius-md;
+  border-radius: $radius-pill;
   background-size: cover;
   background-position: center;
-  border: 2px solid $border-thin;
+  border: 3px solid $bg-base;
   
   .play-overlay {
-    font-size: 32px;
+    font-size: 45px;
     color: rgba(255, 255, 255, 0.8);
     text-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
 
   &:hover, &:focus  {
     background-color: null; 
-    border: 2px solid $text-main;
+    border: 3px solid $text-main;
   }
 }
 

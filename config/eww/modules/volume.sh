@@ -1,13 +1,11 @@
 #!/bin/bash
 
-get_output() {
-    pamixer --get-volume
+get_vol() {
+    echo $(pamixer --get-volume)
 }
 
-get_output
+get_vol
 
-pactl subscribe | while read -r event; do
-    if echo "$event" | grep -q "sink"; then
-        get_output
-    fi
+pactl subscribe | stdbuf -oL grep --line-buffered "sink" | while read -r _; do
+    get_vol
 done

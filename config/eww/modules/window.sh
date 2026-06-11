@@ -1,5 +1,5 @@
 get_title() {
-    niri msg -j focused-window | jq -r '.title // ""' 2>/dev/null
+    niri msg -j focused-window | jq -r '.title // "~"' 2>/dev/null
 }
 
 get_title
