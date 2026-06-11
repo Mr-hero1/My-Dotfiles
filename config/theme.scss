@@ -1,27 +1,29 @@
 /* =========================================
    ========================================= */
 
-$bg-base: rgba(16, 16, 16, 0.75);
-$bg-surface: #0a0a0a;
-$bg-surface-alt: #161616;
-$bg-hover: #ffffff;
-$bg-active: #5e355e;
+$bg-base: rgba(0, 0, 0, 0.5);
+$bg-surface: rgba(0, 0, 0, 0.8);     
+$bg-surface-alt: rgba(0, 0, 0, 0.4);  
 
-$accent: #096192;
+$bg-hover: rgba(255, 255, 255, 0.8);
+$bg-active: rgba(46, 150, 214, 0.25);
 
+$accent: #ffffff;
+
+/*blue #2e96d6; */
 /*red   #db1c1c; */
 
 /* Transparent Overlays */
-$bg-transparent-light: #1a1a1a;
+$bg-transparent-light: rgba(255, 255, 255, 0.1);
 
 /* Text Colors */
-$text-main: #ffffff;
+$text-main: #E3E9F0;
 $text-inverted: #000000;
-$text-muted: #666666;
+$text-muted: #949494;
 
 /* Borders */
-$border-thin: #999999;
-$border-med: #4D4D4D;
+$border-thin: rgba(255, 255, 255, 0.19);
+$border-med: rgba(255, 255, 255, 0.15);
 
 /* Border Radii */
 $radius-sm: 8px;
@@ -32,4 +34,5 @@ $radius-pill: 99px;
 /* Animations */
 $anim-smooth: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
 $anim-fast: 200ms ease;
+
 
