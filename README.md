@@ -1,7 +1,7 @@
 # [NIRI Rice]
 Personal dotfiles for Niri configuration.
 > [!NOTE]
->  you may need to config the scrpts/eww for the widgets to work good luck ;)
+>  you may need to adjust the scripts and Eww configuration for the widgets to work. good luck! ;)
 
 ## Screenshots
 <p align="center">
@@ -16,11 +16,11 @@ Personal dotfiles for Niri configuration.
 ## Details
 | Component    | Software     |
 |--------------|--------------|
-| OS           | EndeavourOS  |
-| WM / DE      | Niri         |
-| Terminal     | Foot         |
-| Shell        | fish         |
-| Bar          | Eww          |
+| **OS**           | EndeavourOS  |
+| **WM / DE**      | Niri         |
+| **Terminal**     | Foot         |
+| **Shell**        | fish         |
+| **Bar**          | Eww          |
    
 ## References & Themes
 - Everforest-gtk-theme  
