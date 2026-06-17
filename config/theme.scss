@@ -1,14 +1,14 @@
 /* =========================================
    ========================================= */
 
-$bg-base: rgba(0, 0, 0, 0.5);
+$bg-base: #2F4F4F;
 $bg-surface: rgba(0, 0, 0, 0.8);     
 $bg-surface-alt: rgba(0, 0, 0, 0.4);  
 
 $bg-hover: rgba(255, 255, 255, 0.8);
 $bg-active: rgba(46, 150, 214, 0.25);
 
-$accent: #ffffff;
+$accent: #E67E80;
 
 /*blue #2e96d6; */
 /*red   #db1c1c; */
@@ -19,7 +19,7 @@ $bg-transparent-light: rgba(255, 255, 255, 0.1);
 /* Text Colors */
 $text-main: #E3E9F0;
 $text-inverted: #000000;
-$text-muted: #949494;
+$text-muted: rgba(255, 255, 255, 0.6);
 
 /* Borders */
 $border-thin: rgba(255, 255, 255, 0.19);
