@@ -1,6 +1,7 @@
 # [NIRI Rice]
 Personal dotfiles for Niri configuration.
-note you may need to config the scrpts/eww for the widgets to work good luck ;)
+> [!NOTE]
+>  you may need to config the scrpts/eww for the widgets to work good luck ;)
 
 ## Screenshots
 <p align="center">
