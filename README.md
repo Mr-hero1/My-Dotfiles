@@ -1,8 +1,8 @@
-# 🐧 [NIRI Rice]
+# [NIRI Rice]
 Personal dotfiles for Niri configuration.
 note you may need to config the scrpts/eww for the widgets to work good luck ;)
 
-## 📸 Screenshots
+## Screenshots
 <p align="center">
   <img src="Preview/preview(1).png" width="45%" />
   <img src="Preview/preview(2).png" width="45%" />
@@ -12,7 +12,7 @@ note you may need to config the scrpts/eww for the widgets to work good luck ;)
   <img src="Preview/preview(4).png" width="45%" />
 </p>
 
-## 🛠 Details
+## Details
 | Component    | Software     |
 |--------------|--------------|
 | OS           | EndeavourOS  |
@@ -21,9 +21,9 @@ note you may need to config the scrpts/eww for the widgets to work good luck ;)
 | Shell        | fish         |
 | Bar          | Eww          |
    
-## 🤓 References & Themes
-- Graphite-gtk-theme  
-  - URL:  https://github.com/vinceliuice/Graphite-gtk-theme
+## References & Themes
+- Everforest-gtk-theme  
+  - URL:  https://github.com/Fausto-Korpsvart/Everforest-GTK-Theme
 - Tela-circle-icon-theme
   - URL:  https://github.com/vinceliuice/Tela-circle-icon-theme
 - eww configuration docs
