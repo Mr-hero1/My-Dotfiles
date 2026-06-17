@@ -1,0 +1,310 @@
+@import "/home/dr/.config/theme.scss";
+
+* {
+  all: unset;
+  font-family: "Material Design Icons";
+  font-weight: 600;
+  background: none;
+  border-radius: 0;
+}
+
+/* =========================================
+   Base Containers
+   ========================================= */
+
+.bar1 {
+  background-color: $bg-base;
+  font-size: 16px;
+  border-radius: $radius-lg $radius-lg 0 0;
+  padding: 6px;
+}
+
+.main-container {
+  background-color: $bg-base;
+  color: $text-main;
+  border-radius: $radius-lg;
+  padding: 15px 15px 5px 15px;
+  border-bottom: 10px solid $bg-transparent-light;
+}
+
+/* =========================================
+   Typography & Spacing
+   ========================================= */
+
+.text {
+  font-size: 20px;
+  font-family: "JetBrainsMono NFM";
+  font-weight: 900;
+}
+
+.bt-text {
+  font-size: 15px;
+  font-family: "JetBrainsMono NFM";
+  font-weight: 900;
+}
+
+.textoff {
+  color: $text-muted;
+  padding: 0 5px;
+  margin-top: 3px;
+  font-size: 19px;
+  font-family: "JetBrainsMono NFM";
+  font-weight: 900;
+}
+
+/* =========================================
+   Buttons & Actions
+   ========================================= */
+
+button {
+  transition: $anim-fast;
+
+  &:hover {
+    background-color: $bg-hover;
+    color: $text-inverted;
+    border-radius: $radius-lg;
+    transition: $anim-smooth;
+  }
+}
+
+.panel-button {
+  margin-right: 0;
+  border-radius: $radius-pill;
+  padding: 0 11px;
+}
+
+.panel-icon {
+  font-size: 19px;
+  margin-top: 3px;
+}
+
+/* =========================================
+   Headers & Toggles
+   ========================================= */
+
+.header-row {
+    
+  .battery-pill {
+    padding: 5px 12px;
+    background: $bg-transparent-light;
+    border-radius: $radius-pill;
+  }
+}
+
+.toggles-grid {
+  margin-top: 12px;
+}
+
+.toggle-btn, 
+.toggle-btn-simple {
+  background-color: $bg-transparent-light;
+  padding: 13px;
+  border-radius: $radius-md; 
+  transition: $anim-smooth;
+  
+  &:focus {
+    background-color: $bg-hover;
+    color: $text-inverted;
+  }
+
+  &:hover {
+    background-color: $bg-hover;
+    color: $text-inverted;
+    border-radius: $radius-pill;
+  }
+
+  .toggle-label {
+    font-size: 17px;
+    font-family: "JetBrainsMono NFM";
+    font-weight: 900;
+  }
+
+  .toggle-sub {
+    font-family: "JetBrainsMono NFM";
+    font-size: 12px;
+  }
+}
+
+.toggle-arrow {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.toggle-icon {
+  margin-right: 6px;
+  margin-bottom: 2px;
+  font-size: 29px;  
+}
+
+/* =========================================
+   Sliders (GTK Scale Elements)
+   ========================================= */
+
+scale {
+  highlight {
+    background-color: $text-main;
+    border-radius: 0 $radius-pill $radius-pill 0;
+  }
+
+  trough {
+    background-color: $border-med;
+    border-radius: 0 $radius-pill $radius-pill 0;
+    min-height: 34px;
+    min-width: 50px;
+  }
+}
+
+.slider-section {
+  padding-bottom: 10;  
+}
+
+.slider-icon {
+  font-size: 25px;
+  color: $bg-base;
+  padding: 2px 10px 0 10px;
+  background-color: $text-main;
+  border-radius: $radius-pill 0 0 $radius-pill;
+}
+
+/* =========================================
+   Menus
+   ========================================= */
+
+.menu-container {
+  background-color: $bg-surface-alt;
+  border-radius: $radius-md;
+  padding: 12px;
+  margin: 5px 0 15px 0;
+}
+
+.menu-header {
+  padding-bottom: 12px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid $border-med;
+}
+
+.menu-icon {
+  font-size: 25px;
+  background-color: $border-med;
+  padding: 8px;
+  border-radius: $radius-sm;
+}
+
+.menu-title {
+  font-size: 16px;
+  font-family: "JetBrainsMono NFM";
+  font-weight: 900;
+}
+
+.menu-btn {
+  padding: 10px;
+  border-radius: $radius-sm;
+  font-size: 15px;
+  font-family: "JetBrainsMono NFM";
+  transition: background-color 0.1s ease;
+  
+  &:hover {
+    background-color: $border-med;
+    color: #fff;
+  }
+}
+
+/* =========================================
+   Music Player
+   ========================================= */
+
+.music-container {
+  background-color: $bg-transparent-light;
+  color: $text-main;
+  border-radius: $radius-lg;
+  padding: 7px 10px 7px 5px;
+  margin-bottom: 8px;
+}
+
+.music-info {
+  .song-title {
+    font-size: 17px;
+    font-weight: 900;
+    color: $text-main;
+    font-family: "JetBrainsMono NFM";
+  }
+
+  .song-artist {
+    font-size: 15px;
+    color: $text-muted;
+    margin-top: 5px;
+    font-family: "JetBrainsMono NFM";
+  }
+}
+
+.album-art {
+  border-radius: $radius-pill;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid $bg-base;
+  
+  .play-overlay {
+    font-size: 45px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  &:hover, 
+  &:focus {
+    border-color: $text-main;
+  }
+}
+
+.music-bar-container {
+  scale {
+    trough {
+      min-height: 8px; 
+      background-color: $bg-transparent-light;
+      border-radius: $radius-pill;
+    }
+    
+    highlight {
+      background-color: $text-main;
+      border-radius: $radius-pill;
+    }
+  }
+}
+
+/* =========================================
+   Power Dial
+   ========================================= */
+
+.power-dial-title {
+  font-size: 20px;
+  font-family: "JetBrainsMono NFM";
+  font-weight: 900;
+  color: $text-main;
+  margin-top: 1px;
+}
+
+.btn-icon {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.btn-text {
+  font-size: 14px;
+  font-family: "JetBrainsMono NFM";
+  font-weight: 600;
+}
+
+.cancel-btn {
+  background-color: $bg-transparent-light;
+  border-radius: $radius-lg;
+  padding: 12px;
+  min-width: 273px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-family: "JetBrainsMono NFM";
+  font-weight: 900;
+  &:focus {
+    background-color: $bg-hover;
+    color: $text-inverted;
+  }
+
+}
