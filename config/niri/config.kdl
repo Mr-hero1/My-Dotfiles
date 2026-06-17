@@ -4,6 +4,8 @@ output "eDP-1" {
 }
 
 input {
+    focus-follows-mouse max-scroll-amount="33%"
+
 
     keyboard {
         xkb {
@@ -25,7 +27,7 @@ input {
 }
 
 layout {
-    gaps 28
+    gaps 26
     background-color "transparent"
     center-focused-column "never"
     preset-column-widths {
@@ -36,8 +38,8 @@ layout {
 
     default-column-width { proportion 0.42; }
     focus-ring {
-        width 8
-        active-color "#1a1a1a99"
+        width 6
+        active-color "#436060"
     }
 
     border {
@@ -65,7 +67,7 @@ animations
 
 
 blur {
-    //off
+    off
     passes 5
     offset 3
     noise 0.03
@@ -79,9 +81,9 @@ window-rule {
 
 window-rule {
     match app-id="foot"
-    background-effect {
-    blur true
-    }
+//    background-effect {
+//    blur true
+//    }
 }
 
 window-rule {
@@ -92,18 +94,10 @@ window-rule {
 
 layer-rule {
     match namespace="gtk-layer-shell"
-        geometry-corner-radius 20
-        background-effect {
-        blur true
-    }
 }
 
 layer-rule {
     match namespace="my-control"
-        geometry-corner-radius 21
-        background-effect {
-        blur true
-    }
 }
 
 overview {
@@ -129,7 +123,8 @@ binds {
     Mod+Space { spawn "sh" "-c" "eww  open-many date bar --toggle"; }
     Mod+B { spawn "helium-browser"; }
     Mod+N { spawn "foot" "helix" "~/Notes/"; }
-    Mod+V { spawn-sh "eww open control --toggle && eww update show_timer=false show_power=false"; }
+    Mod+V { spawn-sh "eww open control --toggle && eww update show_timer=false show_power=false  & eww close power"; }
+    Mod+Escape { spawn-sh "eww close control & eww open power  --toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
@@ -296,7 +291,6 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
