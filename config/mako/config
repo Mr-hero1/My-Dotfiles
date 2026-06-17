@@ -8,7 +8,7 @@ margin=8,0,5,0
 width=400
 height=100
 padding=15
-border-size=8
+border-size=0
 border-radius=27
 text-alignment=center
 
@@ -16,9 +16,9 @@ font=Material Design Icons 14
 max-visible=2
 default-timeout=4100
 
-background-color=#090909
+background-color=#2F4F4F
 text-color=#ffffff
-border-color=#00000090
+border-color=#ffffff30
 progress-color=#5e355e
 
 [urgency=high]
