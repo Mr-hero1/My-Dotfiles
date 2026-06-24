@@ -23,8 +23,8 @@ Personal dotfiles for Niri configuration.
 | **Bar**          | Eww          |
    
 ## References & Themes
-- Everforest-gtk-theme  
-  - URL:  https://github.com/Fausto-Korpsvart/Everforest-GTK-Theme
+- Graphite-gtk-theme 
+  - URL:  https://github.com/vinceliuice/Graphite-gtk-theme/tree/main
 - Tela-circle-icon-theme
   - URL:  https://github.com/vinceliuice/Tela-circle-icon-theme
 - eww configuration docs
