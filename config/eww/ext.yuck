@@ -1,10 +1,11 @@
 (deflisten window "~/.config/eww/modules/window.sh")
+(deflisten space "~/.config/eww/modules/workspaces.sh")
 
 (defwidget ext_layout []
     (box :class "bar1" :halign "start" :valign "center" :spacing 10 :space-evenly false  
       (button :class "panel-button" :onclick "eww open power --toggle"
         (box :spacing 7 :space-evenly false
-          (label :class "text" :text "Hi" )))
+          (label :class "text" :text space )))
     (label :class "textoff" :text window :show-truncated true)
     )
   )
