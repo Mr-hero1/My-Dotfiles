@@ -5,12 +5,12 @@ Personal dotfiles for Niri configuration.
 
 ## Screenshots
 <p align="center">
-  <img src="Preview/preview(1).png" width="45%" />
-  <img src="Preview/preview(2).png" width="45%" />
+  <img src="Preview/preview(1).webp" width="45%" />
+  <img src="Preview/preview(2).webp" width="45%" />
 </p>
 <p align="center">
-  <img src="Preview/preview(3).png" width="45%" />
-  <img src="Preview/preview(4).png" width="45%" />
+  <img src="Preview/preview(3).webp" width="45%" />
+  <img src="Preview/preview(4).webp" width="45%" />
 </p>
 
 ## Details
