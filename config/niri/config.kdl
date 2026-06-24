@@ -38,8 +38,8 @@ layout {
 
     default-column-width { proportion 0.42; }
     focus-ring {
-        width 6
-        active-color "#436060"
+        width 9
+        active-color "#21222c"
     }
 
     border {
@@ -53,10 +53,11 @@ layout {
     struts 
 }
 
-spawn-at-startup "awww-daemon"
-spawn-at-startup "eww" "open" "bar" 
+spawn-at-startup "vicinae" "server"
+spawn-at-startup "eww" "open-many" "ext" "bar" 
 spawn-at-startup "mako"
 spawn-at-startup "foot"
+spawn-at-startup "awww-daemon"
 
 hotkey-overlay {
     skip-at-startup
@@ -75,15 +76,15 @@ blur {
 }
 
 window-rule {
-    geometry-corner-radius 20
+    geometry-corner-radius 16
     clip-to-geometry true
 }
 
 window-rule {
     match app-id="foot"
-//    background-effect {
-//    blur true
-//    }
+    background-effect {
+    blur true
+    }
 }
 
 window-rule {
@@ -119,12 +120,12 @@ binds {
 
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "foot"; }
     Mod+E hotkey-overlay-title="Files: file" { spawn "thunar" "-w"; }
-    Mod+A hotkey-overlay-title="Run an Application: togi" { spawn "tofi-drun"; }
-    Mod+Space { spawn "sh" "-c" "eww  open-many date bar --toggle"; }
+    Mod+A repeat=false { spawn "tofi-drun"; }
+    Mod+Space { spawn "sh" "-c" "eww open-many ext bar --toggle"; }
     Mod+B { spawn "helium-browser"; }
     Mod+N { spawn "foot" "helix" "~/Notes/"; }
-    Mod+V { spawn-sh "eww open control --toggle && eww update show_timer=false show_power=false  & eww close power"; }
-    Mod+Escape { spawn-sh "eww close control & eww open power  --toggle"; }
+    Mod+V { spawn-sh "eww open control --toggle && eww update show_timer=false show_power=false"; }
+    Mod+Escape { spawn-sh "eww open power  --toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
@@ -304,6 +305,10 @@ cursor {
 
     hide-when-typing
     hide-after-inactive-ms 1000
+}
+
+debug {
+	honor-xdg-activation-with-invalid-serial
 }
 
 prefer-no-csd
