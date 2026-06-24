@@ -9,7 +9,7 @@ width = 100%
 height = 100%
 border-width = 0
 outline-width = 0
-padding-top = 1%
+padding-top = 4%
 padding-left = 2%
 
 # Background (using $bg-base)
@@ -18,9 +18,9 @@ background-color = #00000000
 # Text Colors (using $text-main)
 text-color = #ffffff
 
-default-result-background = #2F4F4F
-default-result-background-padding = 8, 25
-default-result-background-corner-radius = 40
+default-result-background = #373841
+default-result-background-padding = 12, 25
+default-result-background-corner-radius = 35
 
 # Prompt (using $accent)
 prompt-text = ""
@@ -32,13 +32,13 @@ input-color = #ffffff
 # Selection (using $bg-active and $text-inverted)
 selection-color = #2F4F4F
 selection-background = #ffffff
-selection-background-padding = 8, 25
-selection-background-corner-radius = 40
+selection-background-padding = 12, 25
+selection-background-corner-radius = 35
 
 # Results List
-result-spacing = 40
-num-results = 7
+result-spacing = 35
+num-results = 8
 
 # Font (adjust to your preferred font)
-font = JetBrainsMono NFM Bold
-font-size = 34
+font = JetBrainsMono NFM 
+font-size = 28
