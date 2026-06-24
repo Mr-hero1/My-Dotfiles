@@ -7,22 +7,22 @@ margin=8,0,5,0
 
 width=400
 height=100
-padding=15
-border-size=0
-border-radius=27
+padding=5
+border-size=16
+border-radius=26
 text-alignment=center
 
-font=Material Design Icons 14
+font=JetBrainsMono NFM 16
 max-visible=2
 default-timeout=4100
 
-background-color=#2F4F4F
+background-color=#373841
 text-color=#ffffff
-border-color=#ffffff30
+border-color=#21222c
 progress-color=#5e355e
 
 [urgency=high]
-text-color=#096192
+text-color=#000000
 default-timeout=0
 
 [app-name=sys]
