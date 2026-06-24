@@ -15,16 +15,16 @@
 .bar1 {
   background-color: $bg-base;
   font-size: 16px;
-  border-radius: $radius-lg $radius-lg 0 0;
-  padding: 6px;
+  border-radius: $radius-lg;
+  padding: 8px 10px;
 }
 
 .main-container {
   background-color: $bg-base;
   color: $text-main;
   border-radius: $radius-lg;
-  padding: 15px 15px 5px 15px;
-  border-bottom: 10px solid $bg-transparent-light;
+  padding: 15px 15px 12px 15px;
+  border-bottom: 8px solid $bg-transparent-light;
 }
 
 /* =========================================
@@ -38,7 +38,7 @@
 }
 
 .bt-text {
-  font-size: 15px;
+  font-size: 16px;
   font-family: "JetBrainsMono NFM";
   font-weight: 900;
 }
@@ -46,7 +46,6 @@
 .textoff {
   color: $text-muted;
   padding: 0 5px;
-  margin-top: 3px;
   font-size: 19px;
   font-family: "JetBrainsMono NFM";
   font-weight: 900;
@@ -58,6 +57,7 @@
 
 button {
   transition: $anim-fast;
+  
 
   &:hover {
     background-color: $bg-hover;
@@ -68,14 +68,13 @@ button {
 }
 
 .panel-button {
-  margin-right: 0;
   border-radius: $radius-pill;
-  padding: 0 11px;
+  padding: 0 12px;
+  background-color: $bg-transparent-light;
 }
 
 .panel-icon {
   font-size: 19px;
-  margin-top: 3px;
 }
 
 /* =========================================
@@ -85,7 +84,7 @@ button {
 .header-row {
     
   .battery-pill {
-    padding: 5px 12px;
+    padding: 6px 12px;
     background: $bg-transparent-light;
     border-radius: $radius-pill;
   }
@@ -95,45 +94,65 @@ button {
   margin-top: 12px;
 }
 
-.toggle-btn, 
-.toggle-btn-simple {
+.toggle-btn {
   background-color: $bg-transparent-light;
-  padding: 13px;
+  padding: 8px;
   border-radius: $radius-md; 
   transition: $anim-smooth;
   
-  &:focus {
-    background-color: $bg-hover;
-    color: $text-inverted;
-  }
-
+  &:focus ,
   &:hover {
     background-color: $bg-hover;
     color: $text-inverted;
     border-radius: $radius-pill;
+    .toggle-sub {
+      color: $text-inverted;
+    }  
+    .toggle-icon {
+    background-color: $bg-hover;
+    }
   }
-
   .toggle-label {
     font-size: 17px;
     font-family: "JetBrainsMono NFM";
     font-weight: 900;
+    margin: 0px 5px;
   }
 
   .toggle-sub {
     font-family: "JetBrainsMono NFM";
+    margin: 0px 6px;
     font-size: 12px;
+    color: $text-muted;
+    transition: $anim-smooth;
   }
 }
 
+.toggle-btn-mini {
+  background-color: $bg-transparent-light;
+  border-radius: $radius-md; 
+  
+  &:hover {
+    color: $text-inverted; 
+    .toggle-sub {
+      color: $text-inverted;
+    }  
+    .toggle-icon {
+    background-color: $bg-hover;
+    }
+  }
+}
+  
 .toggle-arrow {
   font-size: 32px;
   font-weight: 900;
 }
 
 .toggle-icon {
-  margin-right: 6px;
-  margin-bottom: 2px;
-  font-size: 29px;  
+  font-size: 29px;
+  background-color: $bg-base;
+  border-radius: $radius-pill;
+  padding: 11px;
 }
 
 /* =========================================
@@ -217,7 +236,7 @@ scale {
   background-color: $bg-transparent-light;
   color: $text-main;
   border-radius: $radius-lg;
-  padding: 7px 10px 7px 5px;
+  padding: 3px 10px 3px 5px;
   margin-bottom: 8px;
 }
 
@@ -232,7 +251,6 @@ scale {
   .song-artist {
     font-size: 15px;
     color: $text-muted;
-    margin-top: 5px;
     font-family: "JetBrainsMono NFM";
   }
 }
@@ -241,7 +259,7 @@ scale {
   border-radius: $radius-pill;
   background-size: cover;
   background-position: center;
-  border: 3px solid $bg-base;
+  border: 6px solid $bg-base;
   
   .play-overlay {
     font-size: 45px;
@@ -252,6 +270,7 @@ scale {
   &:hover, 
   &:focus {
     border-color: $text-main;
+    border-radius: $radius-pill;
   }
 }
 
@@ -283,7 +302,7 @@ scale {
 }
 
 .btn-icon {
-  font-size: 32px;
+  font-size: 40px;
   margin-bottom: 5px;
 }
 
@@ -297,7 +316,7 @@ scale {
   background-color: $bg-transparent-light;
   border-radius: $radius-lg;
   padding: 12px;
-  min-width: 273px;
+  min-width: 173px;
   margin-bottom: 10px;
   font-size: 15px;
   font-family: "JetBrainsMono NFM";
@@ -308,3 +327,8 @@ scale {
   }
 
 }
+
+
+/* =========================================
+   {"P"}
+   ========================================= */
