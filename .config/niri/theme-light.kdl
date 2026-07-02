@@ -1,0 +1,11 @@
+layout {
+    shadow {
+        on
+        softness 15
+        spread 1
+        offset x=0 y=1
+        draw-behind-window true
+        color "#00000080"
+        inactive-color "#cba6f700"
+    }
+}

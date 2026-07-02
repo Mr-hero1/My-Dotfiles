@@ -1,0 +1,52 @@
+# --- Tofi Fullscreen Config ---
+
+# App Launcher Settings
+drun-launch = true
+terminal = foot &
+num-results = 9
+
+# Window Style
+anchor = top
+width = 100%
+height = 100%
+
+outline-width = 0
+border-width = 0
+min-input-width = 120
+result-spacing = 30
+padding-top = 10
+padding-bottom = 10
+padding-left = 20
+padding-right = 0
+
+# Text style
+prompt-text = ":"
+prompt-padding = 40
+
+background-color = #e3e9f020
+text-color = #000000
+
+default-result-background = #cfd4da
+default-result-background-padding = 4, 12
+default-result-background-corner-radius = 24
+
+prompt-background = #cfd4da
+prompt-background-padding = 4, 12
+prompt-background-corner-radius = 14
+
+input-color = #000000
+input-background-padding = 4, 12
+input-background-corner-radius = 24
+
+selection-color = #ffffff
+selection-background = #1a1d21
+selection-background-padding = 4, 12
+selection-background-corner-radius = 24
+selection-match-color = #ff0000
+
+clip-to-padding = false
+
+# Font (adjust to your preferred font)
+font = JetBrainsMono NFM 
+font-size = 30
+

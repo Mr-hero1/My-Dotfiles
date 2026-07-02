@@ -1,0 +1,49 @@
+(include "./control.yuck")
+(include "./notification.yuck")
+
+(defpoll time :interval "10s" "date '+%H:%M'")
+(defpoll kay :interval "2s" "~/.config/eww/modules/kay.sh")
+(deflisten info "~/.config/eww/modules/info.sh")
+(deflisten window "~/.config/eww/modules/window.sh")
+(deflisten space "~/.config/eww/modules/workspaces.sh")
+
+(defwidget bar_layout []
+  ;; The main box wraps everything. We removed :halign "center" so it fills the screen width.
+  (box :class "bar1" :orientation "h" :space-evenly false 
+    
+    ;; --- LEFT SIDE ---
+    (box :space-evenly false :spacing 10
+      (button :class "panel-button" :onclick "~/.config/tofi/power.sh" 
+        (box :spacing 7 :space-evenly false
+          (label :class "text" :text space)
+        )
+      )
+      (label :class "textoff" :text window :show-truncated true )
+    )
+
+    ;; --- CENTER EMPTY SPACE ---
+    (box :hexpand true)
+
+    ;; --- RIGHT SIDE ---
+    (box :space-evenly false :spacing 10
+      (revealer :transition "slideleft" 
+                :reveal {timer_status != "Select" && timer_status != ""} 
+                :duration "400ms"
+        (label :class "textoff" :text "󱎫 ${timer_status}")
+      )      
+      (label :class "textoff" :text kay) 
+      (button :class "panel-button" :onclick "~/.config/eww/modules/opener.sh &"
+        (box :spacing 7 :space-evenly false
+          (label :class "panel-icon" :text info) 
+          (label :class "text" :text time)       
+        )
+      )
+    )
+  )
+)
+
+(defwindow bar
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry :x "20px" :y "5px" :width "1570px" :height "0px" :anchor "bottom center")
+    (bar_layout))

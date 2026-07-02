@@ -1,0 +1,27 @@
+theme = "base16_transparent"
+
+[editor]
+color-modes = true
+auto-pairs = false
+soft-wrap.enable = true
+line-number = "absolute"
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+separator = "  "
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "bar"
+
+[keys.normal]
+"y" = ":clipboard-yank"
+"p" = ":clipboard-paste-after"
+
+
+
+

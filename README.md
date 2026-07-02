@@ -31,13 +31,14 @@ Personal dotfiles for Niri configuration.
 </details>
 
 ## Details
-| Component    | Software     |
-|--------------|--------------|
-| **OS**           | EndeavourOS  |
-| **WM / DE**      | Niri         |
-| **Terminal**     | Foot         |
-| **Shell**        | fish         |
-| **Bar**          | Eww          |
+| Component | Software |
+| :--- | :--- |
+| **OS** | EndeavourOS |
+| **Window Manager** | Niri |
+| **Status Bar & Widgets** | Eww |
+| **Terminal Emulator** | Foot |
+| **User Shell** | Fish |
+| **Text Editor** | Helix |
    
 ## References & Themes
 - Graphite-gtk-theme: dark mod (Graphite-Dark)
