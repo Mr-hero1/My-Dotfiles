@@ -1,28 +1,31 @@
 # Eww Configuration Notes
 
 This directory contains the Eww bar and widget configurations for the Niri desktop setup.
+```text
+.
 ├── control.yuck
 ├── eww.scss
 ├── eww.yuck
-├── modules
-│   ├── backlight.sh
-│   ├── bluetooth.sh
-│   ├── info.sh
-│   ├── kay.sh
-│   ├── notify.sh
-│   ├── opener.sh
-│   ├── theme.sh
-│   ├── thum.sh
-│   ├── timer.sh
-│   ├── volume.sh
-│   ├── wifi.sh
-│   ├── window.sh
-│   └── workspaces.sh
+├── modules/
+│   ├── backlight.sh
+│   ├── bluetooth.sh
+│   ├── info.sh
+│   ├── kay.sh
+│   ├── notify.sh
+│   ├── opener.sh
+│   ├── theme.sh
+│   ├── thum.sh
+│   ├── timer.sh
+│   ├── volume.sh
+│   ├── wifi.sh
+│   ├── window.sh
+│   └── workspaces.sh
 ├── notification.yuck
-└── theme
+└── theme/
     ├── themedark.scss
     ├── themelight.scss
     └── theme.scss
+```
     
 ## Theme Switching (Light/Dark Mode)
 * **Eww:** Swaps SCSS asset roots.
