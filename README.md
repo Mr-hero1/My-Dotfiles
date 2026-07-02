@@ -4,29 +4,29 @@ Personal dotfiles for Niri configuration.
 >  you may need to adjust the scripts and Eww configuration for the widgets to work. good luck! ;)
 
 <details>
-<summary><b>Screenshot Set 1</b></summary>
+<summary><b>Desktop (Light & Dark)</b></summary>
 <br>
 <p align="center">
-  <img src="Preview/preview(1).webp" width="80%" alt="Screenshot 1" /><br><br>
-  <img src="Preview/preview(2).webp" width="80%" alt="Screenshot 2" />
+  <img src="Preview/preview(1).webp" width="49%" alt="Light Theme Desktop" />
+  <img src="Preview/preview(2).webp" width="49%" alt="Dark Theme Desktop" />
 </p>
 </details>
 
 <details>
-<summary><b>Screenshot Set 2</b></summary>
+<summary><b>UI Elements & Menus</b></summary>
 <br>
 <p align="center">
-  <img src="Preview/preview(3).webp" width="80%" alt="Screenshot 3" /><br><br>
-  <img src="Preview/preview(4).webp" width="80%" alt="Screenshot 4" />
+  <img src="Preview/preview(3).webp" width="49%" alt="Light Theme App Launcher" />
+  <img src="Preview/preview(4).webp" width="49%" alt="Dark Theme Control Center" />
 </p>
 </details>
 
 <details>
-<summary><b>Screenshot Set 3</b></summary>
+<summary><b>Terminal Workflow & Music</b></summary>
 <br>
 <p align="center">
-  <img src="Preview/preview(5).webp" width="80%" alt="Screenshot 5" /><br><br>
-  <img src="Preview/preview(6).webp" width="80%" alt="Screenshot 6" />
+  <img src="Preview/preview(5).webp" width="49%" alt="Light Theme Terminal" />
+  <img src="Preview/preview(6).webp" width="49%" alt="Dark Theme Terminal" />
 </p>
 </details>
 
