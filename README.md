@@ -4,7 +4,7 @@ Personal dotfiles for Niri configuration.
 >  you may need to adjust the scripts and Eww configuration for the widgets to work. good luck! ;)
 
 <details>
-<summary><b>Desktop </b></summary>
+<summary><b>Desktop & Hyprlock </b></summary>
 <br>
 <p align="center">
   <img src="Preview/preview(1).webp" width="49%" alt="Light Theme Desktop" />
