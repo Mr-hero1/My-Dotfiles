@@ -10,7 +10,7 @@ $bg-surface-alt:   rgba(0, 0, 0, 0.09);
 $bg-hover:         rgba(0, 0, 0, 0.7);
 $bg-active:        rgba(46, 150, 214, 0.15);
 
-$accent:           #E67E80;
+$accent:           #E2232A;
 
 /* Text Colors */
 $text-main:        #1A1D21;
@@ -19,13 +19,3 @@ $text-muted:       rgba(0, 0, 0, 0.6);
 
 /* Borders */
 $border-med:       rgba(0, 0, 0, 0.28);
-
-/* Border Radii */
-$radius-sm: 8px;
-$radius-md: 18px;
-$radius-lg: 28px;
-$radius-pill: 99px;
-
-/* Animations */
-$anim-smooth: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
-$anim-fast: 200ms ease;

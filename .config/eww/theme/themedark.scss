@@ -8,7 +8,7 @@ $bg-surface-alt: rgba(255, 255, 255, 0.15);
 
 $bg-hover: rgba(255, 255, 255, 0.8);
 
-$accent: #E67E80;
+$accent: #E2232A;
 
 /* Text Colors */
 $text-main: #E3E9F0;
@@ -17,15 +17,4 @@ $text-muted: rgba(255, 255, 255, 0.8);
 
 /* Borders */
 $border-med: rgba(255, 255, 255, 0.15);
-
-/* Border Radii */
-$radius-sm: 8px;
-$radius-md: 20px;
-$radius-lg: 28px;
-$radius-pill: 99px;
-
-/* Animations */
-$anim-smooth: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
-$anim-fast: 200ms ease;
-
 

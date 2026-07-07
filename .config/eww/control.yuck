@@ -3,22 +3,14 @@
 (deflisten brightness :initial "100" "~/.config/eww/modules/backlight.sh")  
 (deflisten wifi_status :initial "OFF" "~/.config/eww/modules/wifi.sh")
 (deflisten timer_status :initial "Select" "~/.config/eww/modules/timer.sh")
-(defpoll timex :interval "99s" "date '+%A, %d %b %Y'")
+(defpoll timex :interval "99s" "date '+%a, %d %b %Y'")
 (defvar show_timer false)
 (defvar nightlight_state false)
 (defvar control_visible true)
 
-(deflisten song_title   :initial "None" "playerctl metadata --format '{{title}}' --follow")
-(deflisten song_artist  :initial "Unknown" "playerctl metadata --format '{{artist}}' --follow")
-(deflisten player_status :initial "Stopped" "playerctl metadata --format '{{status}}' --follow")
-
-(defpoll song_position :interval "5s" "playerctl position 2>/dev/null || echo 0")
-(defpoll song_length   :interval "5s" "playerctl metadata mpris:length | awk '{print $1 / 1000000}' || echo 1")
-(defpoll thum :interval "5s" "~/.config/eww/modules/thum.sh")
-
 (defwidget quick-toggle [label value icon onclick onrightclick revealed show_arrow]
   (button :class "toggle-btn" :onclick onclick :onrightclick onrightclick 
-    (box :orientation "h" :space-evenly false :spacing 2
+    (box :orientation "h" :space-evenly false :spacing 0
       (label :class "toggle-icon" :text icon)
       (box :orientation "v" :valign "center" :halign "start"
         (label :class "toggle-label" :text label :halign "start")
@@ -30,13 +22,12 @@
 
     (box :orientation "h" :space-evenly false :spacing 15 :class "main-container" :halign "center" :valign "center" 
       (box :class "control-center" :orientation "v" :space-evenly false :spacing 10
-
-        (box :class "header-row" :orientation "h" :space-evenly false :spacing 5
-          (box :class "battery-pill" :space-evenly false :spacing 3
+        (box :class "header-row" :orientation "h" :space-evenly false :spacing 5 :halign "center" :valign "center" 
+          (box :class "battery-pill" :space-evenly false :spacing 0 
             (label :text {EWW_BATTERY["BAT0"].status == "Charging" ? "󰂄" : "󰁹"})
-            (label :text "${EWW_BATTERY.BAT0.capacity}" :class "bt-text"))
+            (label :text "${EWW_BATTERY.BAT0.capacity}" :class "bt-text" :width 26 :xalign 0.5))
             
-          (box :class "battery-pill" 
+          (box :class "battery-pill time-pill" 
            (label :class "bt-text" :text timex))
 
           (button :onclick "~/.config/eww/modules/theme.sh" :class "text" 
@@ -47,11 +38,11 @@
           (box :orientation "h" :spacing 10 :space-evenly true
             (quick-toggle :label "Wi-Fi" :value wifi_status :icon {wifi_status == "OFF" ? "󰖪" : wifi_status == "ON" ? "󰤯" : "󰖩"} 
                           :onclick "nmrs & eww close control"
-                          :onrightclick "nmcli radio wifi | grep -q 'enabled' && nmcli radio wifi off || nmcli radio wifi on"
+                          :onrightclick "nmcli radio wifi | grep 'enabled' > /dev/null && nmcli radio wifi off || nmcli radio wifi on"
                           :revealed false :show_arrow false)
             (quick-toggle :label "Bluetooth" :value bluetooth_status :icon {bluetooth_status == "OFF" ? "󰂲" : bluetooth_status == "ON" ? "󰂯" : "󰂱"} 
                           :onclick "overskride & eww close control"
-                          :onrightclick "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on"
+                          :onrightclick "bluetoothctl show | grep 'Powered: yes' > /dev/null && bluetoothctl power off || bluetoothctl power on"
                           :revealed false :show_arrow false))
                           
           (box :orientation "h" :spacing 10 :space-evenly true
@@ -104,5 +95,5 @@
   :windowtype "normal"
   :wm-ignore true
   :namespace "my-control"
-  :geometry (geometry :x "20px" :y "65px" :width "200px" :anchor "bottom right")
+  :geometry (geometry :x "10px" :y "55px" :width "200px" :anchor "bottom right")
   (popup-control))
