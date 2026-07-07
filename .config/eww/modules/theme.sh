@@ -53,7 +53,6 @@ if [ "$CURRENT_SCHEME" = "'prefer-light'" ]; then
     ln -sf "$HELIX_CONFIG_DIR/config.toml.dark" "$HELIX_CONFIG_FILE"
     ln -sf "$TOFI_CONFIG_DIR/config.dark" "$TOFI_CONFIG_FILE"
     ln -sf "$NIRI_CONFIG_DIR/theme-dark.kdl" "$NIRI_THEME_SYMLINK"
-    awww img "$HOME/Pictures/Wallpapers/ogaD.png"
 else
     # --- SWITCH TO LIGHT MODE ---
     
@@ -69,7 +68,5 @@ else
     ln -sf "$HELIX_CONFIG_DIR/config.toml.light" "$HELIX_CONFIG_FILE"
     ln -sf "$TOFI_CONFIG_DIR/config.light" "$TOFI_CONFIG_FILE"
     ln -sf "$NIRI_CONFIG_DIR/theme-light.kdl" "$NIRI_THEME_SYMLINK"
-    awww img "$HOME/Pictures/Wallpapers/ogaA.png"
 fi
 
-eww reload
