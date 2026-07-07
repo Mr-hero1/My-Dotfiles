@@ -26,7 +26,7 @@ input {
 
 include "~/.config/niri/theme.kdl"
 layout {
-    gaps 15
+    gaps 18
     background-color "transparent"
     center-focused-column "never"
     preset-column-widths {
@@ -46,7 +46,7 @@ layout {
     }
 
     struts {
-        bottom 10
+        bottom 0
     }
 }
 
@@ -72,7 +72,7 @@ blur {
 }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 8
     clip-to-geometry true
 }
 
@@ -98,7 +98,7 @@ layer-rule {
 }
 
 overview {
-        zoom 0.7
+        zoom 0.5
        // backdrop-color "#1a1a1a"
     workspace-shadow {
         off
@@ -117,27 +117,28 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "foot"; }
     Mod+E hotkey-overlay-title="Files: file" { spawn "thunar" "-w"; }
     Mod+A repeat=false { spawn "tofi-drun"; }
-    Mod+Space { spawn "sh" "-c" "eww open-many bar ext --toggle"; }
+    Mod+Space { spawn "sh" "-c" "eww open-many bar --toggle"; }
     Mod+B { spawn "helium-browser"; }
     Mod+N { spawn "foot" "helix" "~/Notes/"; }
     Mod+V { spawn-sh "~/.config/eww/modules/opener.sh &"; }
     Mod+Escape { spawn-sh "~/.config/tofi/power.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+    Caps_Lock { spawn-sh "~/.config/niri/caps-toggle.sh"; }
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     Super+Shift+w { spawn-sh "awww img \"$($HOME/.cargo/bin/thumbpick ~/Pictures/Wallpapers)\""; }
 
-    F3 allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0 "; }
-    F2 allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05- "; }
-    F1 allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle "; }
+    F3 allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0 & ~/.config/eww/modules/osd.sh 'volume'"; }
+    F2 allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05- & ~/.config/eww/modules/osd.sh 'volume'"; }
+    F1 allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle & ~/.config/eww/modules/osd.sh 'volume'"; }
     F4 allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    F6 allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set +5% "; }
-    F5 allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set 5%- "; }
+    F6 allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set +5% & ~/.config/eww/modules/osd.sh 'brightness'"; }
+    F5 allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set 5%- & ~/.config/eww/modules/osd.sh 'brightness'"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0 & ~/.config/eww/modules/osd.sh 'volume'"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1- & ~/.config/eww/modules/osd.sh 'volume'"; }
+    XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle & ~/.config/eww/modules/osd.sh 'volume'"; }
     XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
