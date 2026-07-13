@@ -22,7 +22,7 @@ Personal dotfiles for Niri configuration.
 </details>
 
 <details>
-<summary><b>Terminal Workflow & Music</b></summary>
+<summary><b>Workflow</b></summary>
 <br>
 <p align="center">
   <img src="Preview/preview(5).webp" width="49%" alt="Light Theme Terminal" />
