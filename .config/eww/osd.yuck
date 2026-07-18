@@ -9,7 +9,7 @@
             
     (revealer :reveal {show_osd == "volume"} :transition "crossfade" :duration "300ms"
       (box :valign "center" :halign "center"
-        (label :text {volume.volume} :class {matches(info, "󰖁") ? "osd-inf-voff" : "osd-inf-v"})))
+        (label :text {volume.volume} :class {matches(volume, "󰖁") ? "osd-inf-voff" : "osd-inf-v"})))
 
     (revealer :reveal {show_osd == "capt" || show_osd == "capf"} :transition "crossfade" :duration "300ms"
       (box :valign "center" :halign "center"
