@@ -1,0 +1,28 @@
+(deflisten music_title :initial "" "playerctl --follow metadata --format '{{artist}} - {{title}}' || true")
+(deflisten music_status :initial "" "playerctl --follow status || true")
+
+(deflisten brightness :initial "0" "~/.config/eww/modules/backlight.sh")  
+
+
+(deflisten info    :initial '{"camera": "", "mic": ""}' "~/.config/eww/modules/info.sh")
+(deflisten volume  :initial '{"icon": "󰕾", "volume": "100"}'  "~/.config/eww/modules/volume.sh")
+(deflisten wifi    :initial '{"icon": "󰤯", "ssid": "......"}' "~/.config/eww/modules/wifi.sh")
+(deflisten battery :initial '{"icon": "󰁹", "percent": "100"}' "~/.config/eww/modules/battery.sh")
+(deflisten bluetooth :initial '{"icon": "󰂲", "name": "......"}' "~/.config/eww/modules/bluetooth.sh")
+
+
+(defpoll timex :interval "99s" "date '+%a, %d %b %Y'")
+(defpoll time :interval "10s" "date '+%H:%M'")
+(defpoll kay :interval "2s" "~/.config/eww/modules/kay.sh")
+
+(defvar timer_status "" )
+(defvar show_timer false)
+(defvar nightlight_state false)
+(defvar control_visible true)
+
+(defvar notif-visible true)
+(defvar notif-data "{}")
+
+(defvar show_osd "none")
+(defvar osd_visible true)
+

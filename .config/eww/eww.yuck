@@ -1,0 +1,36 @@
+(include "./input.yuck")
+(include "./control.yuck")
+(include "./notification.yuck")
+(include "./osd.yuck")
+
+(defwidget bar_layout []
+  (box :class "bar1" :orientation "h" :space-evenly false 
+    (box :space-evenly false :spacing 10
+      (revealer :transition "slideleft" :reveal {timer_status != "" && timer_status != ""} :duration "400ms"
+        (label :class "textoff" :text "󱎫 ${timer_status}"))
+      (box :space-evenly false :spacing 0     
+      (label :class "textoff" :text kay)
+      (revealer :transition "slideleft" :reveal {music_status == "Playing" || music_status == "Paused"} :duration "400ms"
+      (box :tooltip music_title :space-evenly false
+        (box :width 10)
+        (button :class "panel-buttonoff" :onclick "playerctl previous" "󰼨") 
+        (button :class "panel-button" :onclick "playerctl play-pause" 
+        (label :class "panel-icon" :text {music_status == "Playing" ? "󰏤" : "󰐊"} ))
+        (button :class "panel-buttonoff" :onclick "playerctl next" "󰼧")))
+        )
+ 
+      (button :class "panel-button" :onclick "~/.config/eww/modules/opener.sh &"
+        (box :spacing 7 :space-evenly false
+          (label :class "panel-icon" :text "${wifi.ssid != 'Disconnected' ? wifi.icon + '  ' : ''}${bluetooth.name != 'Off' && bluetooth.name != 'Powered' ? bluetooth.icon + '  ' : ''}${info.camera != '' ? info.camera + '  ' : ''}${info.mic != '' ? info.mic + '  ' : ''}${volume.icon == '󰖁' ? volume.icon + '  ' : ''}${battery.icon}") 
+          (label :class "text" :text time)       
+        )
+      )
+    )
+  )
+)
+
+(defwindow bar
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry :x "10px" :y "5px" :width "0px" :height "0px" :anchor "bottom right") 
+    (bar_layout))

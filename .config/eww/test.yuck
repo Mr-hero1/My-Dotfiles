@@ -1,0 +1,14 @@
+(defwidget T []
+  (box
+    :orientation "v"
+                (label :text {EWW_BATTERY["BAT0"].status == "Charging" ? "󰂄" : "󰁹"})
+            (label :text "${EWW_BATTERY.BAT0.capacity}" :class "bt-text" :width 26 :xalign 0.5)
+    (label :text info :class "toggle-label")
+))
+
+(defwindow tester
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry :x "8px" :y "32px" :width "250px" :anchor "center")
+  (T))
+

@@ -1,0 +1,27 @@
+
+(defwidget popup-osd []
+(revealer :transition "crossfade" :reveal osd_visible :duration "250ms"
+  (box :class "bar1" :orientation "v" :spacing 15 :halign "center" :valign "start" :space-evenly false   
+    (overlay
+    (revealer :reveal {show_osd == "brightness"} :transition "crossfade" :duration "300ms"
+      (box :valign "center" :halign "center"
+        (label :text brightness :class "osd-inf-b")))
+            
+    (revealer :reveal {show_osd == "volume"} :transition "crossfade" :duration "300ms"
+      (box :valign "center" :halign "center"
+        (label :text {volume.volume} :class {matches(info, "󰖁") ? "osd-inf-voff" : "osd-inf-v"})))
+
+    (revealer :reveal {show_osd == "capt" || show_osd == "capf"} :transition "crossfade" :duration "300ms"
+      (box :valign "center" :halign "center"
+        (label :text {show_osd == "capt" ? "CAPS" : 
+                  show_osd == "capf" ? "caps" : ""} 
+           :class "osd-inf-c")))
+))))
+        
+(defwindow osd
+  :monitor 0
+  :stacking "overlay"
+  :windowtype "normal"
+  :wm-ignore true
+  :geometry (geometry :x "0px" :y "100px" :width "300px" :anchor "bottom center")
+  (popup-osd))
